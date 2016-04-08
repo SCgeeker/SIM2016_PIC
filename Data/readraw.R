@@ -10,7 +10,7 @@ file.copy(From_folder, To_folder, recursive = TRUE)
 
 # The following loop is modified from Ananda Mahto's reply @ http://stackoverflow.com/questions/11433432/importing-multiple-csv-files-into-r
 
-raw_EUR <- list.files(list.dirs()[2], recursive = TRUE)
+raw_EUR <- list.files(list.dirs()[2], pattern = "*.csv", recursive = TRUE)
 
 
 V <- c(
@@ -18,6 +18,7 @@ V <- c(
         "List2",
         "List3",
         "List4",
+        "Target",
         "correct_response",
         "response_time", # measurement
         "correct",       # measurement
@@ -40,9 +41,28 @@ for(i in 1:length(raw_EUR)){
                 )
         )
 }
-        
+
 # assign(make.names(gsub("*.csv$", "", raw_EUR[i])), )
 
-rm(From_folder, To_folder, i, raw_EUR, V)
+## The unicode in raw files have to be transfered to unicode numbers.
+raw_TCU <- list.files(list.dirs()[3], pattern = "*.csv", recursive = TRUE)
+
+
+data_TCU <- NULL
+
+for(i in 1:length(raw_TCU)){
+        data_TCU <- rbind(
+                data_TCU,
+                cbind(
+                        ID = rep(gsub("*.csv$", "", raw_TCU[i]), 160), 
+                        cbind(
+                                Trial = 1:160,
+                                read.csv(paste0("TCU/",raw_TCU[i]))[5:164,V]
+                        )
+                )
+        )
+}
+
+rm(From_folder, To_folder, i, raw_EUR, raw_TCU, V)
 # Included columns:
 # form_response, response_rtime, response_time_Probe_C, response_time_Probe_C, correct, correct_response
