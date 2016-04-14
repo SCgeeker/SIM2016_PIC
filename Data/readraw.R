@@ -27,6 +27,12 @@ V <- c(
         "Pic"    # within
 )
 
+Q <- c(
+        "response_Response_Q1", # First is English
+        "response_Response_Q2", # Second is English
+        "response_Response_Q3"  # Proficiency of English
+)
+
 data_EUR <- NULL
 
 for(i in 1:length(raw_EUR)){
@@ -37,6 +43,26 @@ for(i in 1:length(raw_EUR)){
                         cbind(
                         Trial = 1:160,
                         read.csv(paste0("EUR/",raw_EUR[i]), fileEncoding = "UTF-8")[5:164,V]
+                        )
+                )
+        )
+}
+
+Q_EUR <- NULL
+
+for(i in 1:length(raw_EUR)){
+        Q_EUR <- rbind(
+                Q_EUR,
+                cbind(
+                        ID = rep(gsub("*.csv$", "", raw_EUR[i]), 3), 
+                        cbind(
+                                Q = as.factor( 1:3),
+                                response = 
+                                        c(
+                                          as.character(read.csv(paste0("EUR/",raw_EUR[i]), fileEncoding = "UTF-8")[165,Q[1]]), 
+                                          as.character( read.csv(paste0("EUR/",raw_EUR[i]), fileEncoding = "UTF-8")[166,Q[2]]),
+                                          as.numeric(read.csv(paste0("EUR/",raw_EUR[i]), fileEncoding = "UTF-8")[167,Q[3]]) 
+                                         )
                         )
                 )
         )
@@ -63,6 +89,6 @@ for(i in 1:length(raw_TCU)){
         )
 }
 
-rm(From_folder, To_folder, i, raw_EUR, raw_TCU, V)
+rm(From_folder, To_folder, i, raw_EUR, raw_TCU, V, Q)
 # Included columns:
 # form_response, response_rtime, response_time_Probe_C, response_time_Probe_C, correct, correct_response
