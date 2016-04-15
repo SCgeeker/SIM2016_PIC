@@ -6,6 +6,8 @@ To_folder <- "D:/core/Research/projects/Embodied/EXPDATA/ActionObject/2016_Simul
 
 file.copy(From_folder, To_folder, recursive = TRUE)
 
+Sys.setlocale("LC_ALL","English") # Import multiple-bytes string in English system
+
 #rawfile_names <- list.files(pattern = "*.csv")
 
 # The following loop is modified from Ananda Mahto's reply @ http://stackoverflow.com/questions/11433432/importing-multiple-csv-files-into-r
@@ -83,7 +85,7 @@ for(i in 1:length(raw_TCU)){
                         ID = rep(gsub("*.csv$", "", raw_TCU[i]), 160), 
                         cbind(
                                 Trial = 1:160,
-                                read.csv(paste0("TCU/",raw_TCU[i]))[5:164,V]
+                                read.csv(paste0("TCU/",raw_TCU[i]))[5:164,V],
                         )
                 )
         )
