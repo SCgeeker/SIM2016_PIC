@@ -22,6 +22,8 @@ V <- c(
         "List4",
         "Target",
         "correct_response",
+        "response_time_Probe_response_C",
+        "response_time_Probe_response_E",
         "response_time", # measurement
         "correct",       # measurement
         "size",  # within
@@ -85,7 +87,7 @@ for(i in 1:length(raw_TCU)){
                         ID = rep(gsub("*.csv$", "", raw_TCU[i]), 160), 
                         cbind(
                                 Trial = 1:160,
-                                read.csv(paste0("TCU/",raw_TCU[i]))[5:164,V],
+                                read.csv(paste0("TCU/",raw_TCU[i]))[5:164,V]
                         )
                 )
         )
@@ -94,3 +96,7 @@ for(i in 1:length(raw_TCU)){
 rm(From_folder, To_folder, i, raw_EUR, raw_TCU, V, Q)
 # Included columns:
 # form_response, response_rtime, response_time_Probe_C, response_time_Probe_C, correct, correct_response
+
+# compare the probe sentence reading time
+E_Reading_Time = summary(data_EUR$response_time_Probe_response_E)
+C_Reading_Time = summary(data_TCU$response_time_Probe_response_C)
