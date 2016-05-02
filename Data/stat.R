@@ -50,3 +50,5 @@ CHINESE_ANALYSIS <- list(
                 summary(aov(PE ~ Size*Pic*Match + Error(paste0(Lang,ID)/(Size*Pic*Match) )))
         )
 )
+
+save.image(file = "20160428.RData")
