@@ -77,8 +77,8 @@ rm(RT, PE)
 Conditions_Stat <- data.frame(
         RT_MEAN = round(with(data = RT_DF, tapply(RT, paste(Lang, Size, Pic, Match), mean)),digits = 2),
         RT_SD = round(with(data = RT_DF, tapply(RT, paste(Lang, Size, Pic, Match), sd)),digits = 2),
-        PE_MEAN = round(with(data = RT_DF, tapply(PE, paste(Lang, Size, Pic, Match), mean)),digits = 2),
-        PE_SD = round(with(data = RT_DF, tapply(PE, paste(Lang, Size, Pic, Match), sd)),digits = 2)
+        ACC_MEAN = round(with(data = RT_DF, tapply(PE, paste(Lang, Size, Pic, Match), mean)),digits = 2),
+        ACC_SD = round(with(data = RT_DF, tapply(PE, paste(Lang, Size, Pic, Match), sd)),digits = 2)
 )
 
 Conditions_Stat = data.frame(matrix(unlist(stri_split(row.names(Conditions_Stat), regex = " ")), ncol = 4, byrow = TRUE, dimnames = list(1:16,c("Lang", "Size", "Pic", "Match"))), Conditions_Stat)

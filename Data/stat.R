@@ -51,4 +51,8 @@ CHINESE_ANALYSIS <- list(
         )
 )
 
+Match_Effect <- Conditions_Stat[Conditions_Stat$Match == "No",]$RT_MEAN - Conditions_Stat[Conditions_Stat$Match == "Yes",]$RT_MEAN
+
+Match_Effect_Sp <- sqrt( ( c(rep(19,4),rep(24,4))*Conditions_Stat[Conditions_Stat$Match == "No",]$RT_SD^2 + c(rep(19,4),rep(24,4))*Conditions_Stat[Conditions_Stat$Match == "Yes",]$RT_SD^2 )/c(rep(38,4),rep(48,4)) )
+
 save.image(file = "20160428.RData")
