@@ -1,0 +1,863 @@
+---
+title: "Matching of explicit comprehesion and implicit simulation"
+author: "Sau-Chin Chen"
+highlighter: highlight
+job: Assistant Professor, Department of Human Development and Psychology, Tzu-Chi
+  University
+logo: BBC_talk0308.png
+knit: slidify::knit2slides
+output:
+  slidy_presentation:
+    incremental: yes
+  ioslides_presentation:
+    incremental: yes
+mode: standalone
+hitheme: tomorrow
+subtitle: Access to slides - goo.gl/objP8F
+framework: io2012
+widgets: mathjax
+deckjs:
+  theme: swiss
+---
+
+```{r setup, include=FALSE, cache=FALSE}
+# This setup script is from Wush's open slides
+# Wush's github: https://github.com/wush978
+suppressPackageStartupMessages({
+  library(knitr) #library(slidify)
+  library(magrittr)
+  library(dplyr)
+  library(gplots)
+  library(ggplot2)
+  library(xtable)
+  library(data.table)
+  library(rCharts)
+  })
+opts_chunk$set(echo = FALSE, cache = FALSE, comment="")
+fit100 <- fig <- function(path, size = 100) {
+  sprintf("<img src='assets/img/%s' style='max-width: %d%%;max-height: %d%%'></img>", 
+          path, size, size)
+}
+fig2 <- function(path, size = 100) {
+  sprintf("<img src='assets/img/%s' style='width: %d%%'></img>", 
+          path, size)
+}
+sys_name <- Sys.info()["sysname"] %>% tolower
+sys_encode <- c("utf8", "utf8", "big5")[pmatch(sys_name, c("linux", "darwin", "windows"))]
+sessionInfo() %>% capture.output %>% cat(file = "sessionInfo.log", sep = "\n")
+thm <- theme(text=element_text(size=24))
+las2 <- theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## About Sau-Chin Chen
+- 2004 Ph.D., Psychology, Department of Psychology, National Chung Cheng University, Chia-Yi, Taiwan. Dissertation: Influence of Contiguity on Priming effects (supervised by Dr. I. M. Liu).
+- 2005 ~ 2009 Post doc career
+ + Department of Psychology, National Taiwan University, Taiwan
+ + Institute of Cognitive Science, National Cheng Kung University, Taiwan
+ + Department of Psychology, University of Richmond, USA
+- 2009 ~ present 
+ + Assistant Professor. Department of Human Development and Psychology, Tzu Chi University
+
+--- .class id#
+## Past to Present
+- Word Recognition
+ + Semantic priming
+ + Orthography-Phonology consistency in reading words
+ + Database of word reading behaviors
+- Meanings and Concepts
+ + Mental models in sentence reading
+ + Word use frequency: Count in descriptive units
+- Cognitive Conflicts
+ + Improvement of tasks
+ + Materials in teaching
+
+--- &twocol
+## Present to Future
+
+*** =left
+- Language Comprehension
+ + Sentence reading
+ + Embodied cognition approach
+ + Development of data processing toolkits
+- Experimental Psychology + Data Science
+ + Open source of experimental scripts
+ + Open source of data analysis
+ + Programming of knowledge accumulation and spreading
+
+*** =right
+`r fig("csc_github.png")`
+
+--- .class id#
+## Outline
+
+1. Current: Actions in language comprehension
+2. Thinking: Variety of mental simulations
+3. New Action: Examine matching effects of sentence-picture verification
+
+--- .segue .dark
+## Actions in Language Comprehension
+
+--- &twocol
+## What could we imagine?
+
+*** =left
+
+ >- Zwaan, Stanfield, and Yaxley (2002)
+ >- There was an egg in the refrigerator.
+ >- `r fig("eggwhole.png")`
+ >- Shape
+
+*** =right
+
+ >- Stanfield and Zwaan (2001)
+ >- Jim prepared to insert the screw into the top of the cabinet.
+ >- `r fig("screw.png", 150)`
+ >- Orientation
+
+--- .class id#
+## More than Visual Experience
+
+**Jim prepared to insert the screw into the top of the cabinet.**  
+ >- Texture: A feeling when Jim grabbed the screw in his hand.  
+ >- Strength: An action when Jim positioned the screw on the top of cabinet.
+ >- Trajectory: A path Jim moves the screw in this situation.
+ >- **Motor experience**: _verb phrase_, _implicit_, _sensorimotor_, ... (Glenberg & Kashak, 2002; Zwaan & Taylor, 2006)
+ >- Could we measure the simulation effects of motor experiences in sentence reading?
+
+--- &twocol
+## Initial: 2012~2013
+
+Explore the theories and methods to study the embodied simulation in language comprehension.
+
+*** =left
+ >- **Theories and Models**
+ >- Perceptual symbol systems (Barsalou 1999, 2009)
+ >- Situation models (Zwaan, 1999; Tapiero, 2007)
+ >- Theory of event coding (Hommel, 2001; 2015)
+
+*** =right
+ >- **Methods**
+ >- Simon task (Hommel, 2011); 
+ >- Extrinsic affective Simon task ( **EAST**, De Houwer, 2003); 
+ >- Sentence picture verification (Zwaan, Stanfield, & Yaxley, 2002)
+
+--- .class #id
+## Understand EAST
+
+>- Probe task: Word meaning classification; Critical task: Word color discrimination
+>- Word meaning classification -> Establish meaning-response association
+   + Key 1 = *Happy* | Key 2 = *Disgust*
+>- Word color discrimination -> Measure compatibity effect
+   + Key 1 = <font color="blue">Color1</font>  | Key 2 = <font color="green">Color2</font>
+   + Word 1 = <font color="blue">*Gift*</font> | Word 2 = <font color="green">*Garbage*</font>
+>- Compatible Case
+   + Key 1 ~ <font color="blue">*Gift*</font> | Key 2 ~ <font color="green">*Garbage*</font>
+>- Incompatible Case
+   + Key 1 ~ <font color="blue">*Disgust*</font> | Key 2 ~ <font color="green">*Happy*</font>
+>- EAST Effect = ${RT_Compatible}$ - ${RT_Incompatible}$
+
+<!--
+--- .class #id
+## Modify EAST
+
+*Establish the association of simulated experiences and key responses.  
+>- Probe task
+   + Generate the mental simulation of motor experiences.
+   + Encourage participants imagine the situation while comprehending the instruction.
+   + Trigger the implicit association of simulated cues and key responses.
+>- Critical task
+   + Target words are the constituents of motor experiences.
+   + Compatibility effect shows the strength of the implicit association.
+-->
+
+--- .class #id
+## Modification of Probe Task
+>- Imagination Task(2013): to verify the imagination based on the probe picture 
+>- Sentence-picture verification(2014): to simulate the situation of taking action based on the probe sentence
+>- Characteristics of Probe Tasks
+ + Two pairs of probes.
+ + One pair of probes associates with one situation.
+ + One situation would generate more moter experiences than the other situation.
+ 
+<!--
+ + Make response based on the situation with the strong motor experiences.-->
+
+--- .class #id
+## Modification of Sentence Picture Verification
+- To trigger the strongest motor experiences in the situation where the subject is performing the action with the largest strength.
+- 2014
+ + Move Heavy Object vs. Move Light Object
+ + <font color="red">Strong motor experiences vs. Weak motor experiences</font>
+ + Measure the responses of critical task only
+- 2015
+ + Manipulate Object vs. Touch Object
+ + <font color="red">With motor experiences vs. Without motor experiences</font>
+ + Measure the responses of critical task and probe task
+
+--- &twocol
+## Probe Task: 2014
+- To verify the picture matched **the consequence of action**.
+- Between-participants associations ~ 1:(A) & (D), 2:(B) & (C)
+
+*** =left
+**<font color="red">Move Heavy Object</font>**  
+- (A)He gives the huge box to me.
+- `r fig("GIVE_BOX.JPG", 25)`  
+- (B)He takes the huge box from me.
+- `r fig("TAKE_BOX.JPG", 25)`  
+
+*** =right
+**<font color="red">Move Light Objects</font>**  
+- (C)He gives thin pads to me.
+- `r fig("GIVE_PAD.JPG", 25)`  
+- (D)He takes thin pads from me.
+- `r fig("TAKE_PAD.JPG", 25)`  
+
+--- &twocol
+## Critical Task: 2014
+```{r DATA2014, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE, include=FALSE}
+## Switch Series 1 and 2, combine wCon and wInc
+SUBJ <- read.table("D:/core/Research/projects/Embodied/EXPDATA/ActionObject/201403_GaT/stat/SUBJ.csv",head=T,sep=",")
+
+attach(SUBJ)
+
+SUBJA = subset(SUBJ,(F2 == 'S' | F2=='T'))
+SUBJO = subset(SUBJ,(F2 == 'W' | F2=='E'))
+
+detach(SUBJ)
+
+### ART <- matrix(tapply(SUBJA$RT, paste(SUBJA$F1,paste(SUBJA$F2,SUBJA$F3)), mean),nrow=2,byrow=T, dimnames=list(levels(as.factor(SUBJA$F3)),levels(as.factor(paste(SUBJA$F1,SUBJA$F2,sep="")) )))
+
+### Ase <- matrix(            tapply(SUBJA$RT,paste(SUBJA$F1,paste(SUBJA$F2,SUBJA$F3)), sd)/nlevels(SUBJA$Subj),nrow=2,            dimnames=list(levels(as.factor(SUBJA$F3)),levels(as.factor(paste(SUBJA$F1,SUBJA$F2,sep=""))) ))
+
+ART <- tapply(SUBJA$RT, paste0(SUBJA$F1,paste0(SUBJA$F2,SUBJA$F3)), mean)
+
+Ase <- tapply(SUBJA$RT,paste(SUBJA$F1,paste(SUBJA$F2,SUBJA$F3)), sd)/nlevels(SUBJA$Subj)
+
+## Aci <- Ase * qt(.975, nlevels(SUBJA$Subj) - 1)
+
+## IS = "Recieve", IT = "Send", JS = "Take", JT = "Provide"
+
+## ORT <- matrix(tapply(SUBJO$RT, paste(SUBJO$F1,paste(SUBJO$F2,SUBJO$F3)), mean),nrow=2,byrow=T,dimnames=list( levels(as.factor(SUBJO$F3)),levels(as.factor(paste(SUBJO$F1,SUBJO$F2,sep="")) )))
+
+## Ose <- matrix( tapply(SUBJO$RT, paste(SUBJO$F1,paste(SUBJO$F2,SUBJO$F3)), sd)/nlevels(SUBJO$Subj),nrow=2, dimnames=list( levels(as.factor(SUBJO$F3)), levels(as.factor(paste(SUBJO$F1,SUBJO$F2,sep=""))) ))
+
+ORT <- tapply(SUBJO$RT, paste0(SUBJO$F1,paste0(SUBJO$F2,SUBJO$F3)), mean)
+
+Ose <- tapply(SUBJO$RT,paste(SUBJO$F1,paste(SUBJO$F2,SUBJO$F3)), sd)/nlevels(SUBJO$Subj)
+
+## Oci <- Ose * qt(.975, nlevels(SUBJO$Subj) - 1)
+
+## IW = "Heavy", IE = "Empty", JW = "Light", JE = "Null"
+
+## Heavy Object: IS - IW; IT - IE
+## Ligth Object: JS - JW; JT - JE
+EXP2014 <- data.frame(
+        RT = c(ART, ORT),
+        se = c(Ase, Ose),
+        Compatibility = rep(c("Compatible","Incompatible"),8),
+        WORD = as.factor(c(substr(unlist(dimnames(ART)),1,2), substr(unlist(dimnames(ORT)),1,2) )),
+        G = rep(c(rep("Heavy Object", 4), rep("Light Object", 4)), 2)
+)
+levels(EXP2014$WORD) <- c("Empty", "Recieve", "Send", "Heavy", "Null", "Take", "Provide", "Light")
+
+EXP2014 = EXP2014[c(1,2,11,12,3,4,9,10,5,6,15,16,7,8,13,14),]
+
+#plotpath<- file.path(getwd(), "PLOT_name",paste("plot_",file,".png",sep=""))
+## Results of Heavy Object
+
+
+#require(manipulate)
+# manipulate(
+# barplot2(
+#  matrix(EXP2014$RT[EXP2014$G==group],nrow=2), beside=T,xpd=F,
+#  legend = levels(EXP2014$Compatibility),
+#  names.arg = as.vector(EXP2014$WORD)[EXP2014$G==group][c(1,3,5,7)],
+#  ylim = c(380,440),ylab="Response Time(ms)",plot.grid = TRUE,
+#  col = rep(c("black","white"),8),         
+#  plot.ci = TRUE, 
+#  ci.l = matrix((EXP2014$RT[EXP2014$G==group] - EXP2014$se[EXP2014$G==group]), nrow = 2), 
+#  ci.u = matrix((EXP2014$RT[EXP2014$G==group] + EXP2014$se[EXP2014$G==group]), nrow = 2),
+#  panel.first = TRUE
+#),
+#
+#group = picker("Heavy Object" = "Heavy Object",
+#               "Light Object" = "Light Object")
+#)
+#PLOT2014 <- nPlot(RT ~ WORD, group = 'Compatibility',
+#                  data = EXP2014,
+#                  type = 'multiBarChart')
+#PLOT2014$chart(color = c('black', 'grey'))
+#PLOT2014$addFilters("G")
+# PLOT2014$set(dom = 'chart1', height = 200, width = 600)
+#PLOT2014$set(dom = 'chart2', height = 200, width = 600)
+#PLOT2014$chart(forceY = c(380, 420))
+#PLOT2014$show('iframe', cdn = TRUE)
+
+```
+Critical words for every particiapnt. There were `r nlevels(SUBJ$Subj)` participants in this study.
+
+*** =left
+- <font color="red">Move Heavy Object</font>
+  + (A)<font color="blue">**Recieve**, **Heavy**</font>
+  + (B)<font color="green">**Send**, **Empty**</font>
+
+*** =right
+- <font color="red">Move Light Object</font>
+  + (C)<font color="blue">**Take**, **Light**</font>
+  + (D)<font color="green">**Provide**, **Null**</font>
+
+--- &twocol 
+## Results: 2014 Move Heavy Object (Strong Motor Experience) 
+
+*** =left
+>- "Heavy" is related to the feeling of "He gives the huge box to me".
+>- In this situation, only the simulation of "received box" facilitated the implicit association (compatibility effect).
+
+*** =right
+```{r Heavy2014, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
+barplot2(
+  matrix(EXP2014$RT[EXP2014$G=="Heavy Object"],nrow=2), beside=T,xpd=F,
+  legend = levels(EXP2014$Compatibility),
+  names.arg = as.vector(EXP2014$WORD)[EXP2014$G=="Heavy Object"][c(1,3,5,7)],
+  ylim = c(380,440),ylab="Response Time(ms)",plot.grid = TRUE,
+  col = rep(c("black","white"),8),         
+  plot.ci = TRUE, 
+  ci.l = matrix((EXP2014$RT[EXP2014$G=="Heavy Object"] - EXP2014$se[EXP2014$G=="Heavy Object"]), nrow = 2), 
+  ci.u = matrix((EXP2014$RT[EXP2014$G=="Heavy Object"] + EXP2014$se[EXP2014$G=="Heavy Object"]), nrow = 2),
+  panel.first = TRUE
+)
+```
+
+--- &twocol 
+## Results: 2014 Move Light Objects(Weak Motor Experiences) 
+
+*** =left
+>- "Light" is related to the feeling of "He gives thin pads to me.".
+>- "Provide" represents the action "He takes thin pads from me.".
+>- In this situation, the action accepting the object from someone facilitated the compatibility effect.
+
+<!--
+>- In both situations, related to "decreasing weight" barely facilitate the implicit association.  
+-->
+
+*** =right
+```{r Light2014, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
+barplot2(
+  matrix(EXP2014$RT[EXP2014$G=="Light Object"],nrow=2), beside=T,xpd=F,
+  legend = levels(EXP2014$Compatibility),
+  names.arg = as.vector(EXP2014$WORD)[EXP2014$G=="Light Object"][c(1,3,5,7)],
+  ylim = c(380,440),ylab="Response Time(ms)",plot.grid = TRUE,
+  col = rep(c("black","white"),8),         
+  plot.ci = TRUE, 
+  ci.l = matrix((EXP2014$RT[EXP2014$G=="Light Object"] - EXP2014$se[EXP2014$G=="Light Object"]), nrow = 2), 
+  ci.u = matrix((EXP2014$RT[EXP2014$G=="Light Object"] + EXP2014$se[EXP2014$G=="Light Object"]), nrow = 2),
+  panel.first = TRUE
+)
+```
+
+--- &twocol
+## Probe Task: 2015
+```{r DATA2015, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
+## Switch Series 1 and 2, combine wCon and wInc
+# Tidy data of sentence-picture verification
+TCU_AB_DATA <- read.table("D:/core/Research/projects/Embodied/EXPDATA/ActionObject/201404_Craw/3STAT/TCU_AB.csv",head=T,sep=",")
+NCKU_AB_DATA <- read.table("D:/core/Research/projects/Embodied/EXPDATA/ActionObject/201404_Craw/3STAT/NCKU_AB.csv",head=T,sep=",")
+TCU_AB_DATA$ID = as.factor(paste0("TCU_",TCU_AB_DATA$ID))
+NCKU_AB_DATA$ID = as.factor(paste0("NCKU_",NCKU_AB_DATA$ID))
+AB_DATA = rbind(TCU_AB_DATA, NCKU_AB_DATA)
+
+# Tidy data of color discrimination
+TCU_T_DATA <- read.table("D:/core/Research/projects/Embodied/EXPDATA/ActionObject/201404_Craw/3STAT/TCU_TEST.csv",head=T,sep=",")
+NCKU_T_DATA <- read.table("D:/core/Research/projects/Embodied/EXPDATA/ActionObject/201404_Craw/3STAT/NCUK_TEST.csv",head=T,sep=",")
+TCU_T_DATA$ID = as.factor(paste0("TCU_",TCU_T_DATA$ID))
+NCKU_T_DATA$ID = as.factor(paste0("NCKU_",NCKU_T_DATA$ID))
+T_DATA <- rbind(TCU_T_DATA, NCKU_T_DATA)
+
+CRITIC = subset(T_DATA,(F4 == 'V' | F4=='A' | F4=='O'))
+
+# Sentence-Picture Verification
+# Descriptive statistics of response sets
+# ACC vs. ACI ~ Close the Jar
+# BOC vs. BOI ~ Open the Jar
+# ASC vs. ASI ~ Pick up the Cube
+# BBC vs. BBI ~ Pick up the Ball
+
+#attach(AB_DATA)
+AB_RT <- with(data = AB_DATA, tapply(RT, paste0(F1, F2, F3), mean) )
+AB_RTsd <- with(data = AB_DATA, tapply(RT, paste0(F1, F2, F3), sd) )
+nA <- length(AB_DATA$F1 == 'A')/4
+nB <- length(AB_DATA$F1 == 'B')/4
+#detach(AB_DATA)
+
+# Response sets of critical words
+#attach(CRITIC)
+CRITIC_RT <- with(data = CRITIC,tapply(RT, paste0(F1, F4, F2, F3), mean))
+#CRITIC_RTsd <- tapply(RT, paste0(F1, F4, F2, F3), sd)
+CRITIC_RTsd <- with(data = CRITIC,tapply(RT, paste0(F1, F4, F2, F3), sd))
+#detach(CRITIC)
+
+
+# Extract subset for verbs
+MOTOR_VERB = subset(T_DATA,
+                        (F1 == 'I' & F4 == 'V' & F2 == 'W') |   #11,12
+                        (F1 == 'I' & F4 == 'A' & F2 == 'S') |   #3,4
+                        (F1 == 'I' & F4 == 'A' & F2 == 'L') |   #1,2
+                        (F1 == 'J' & F4 == 'V' & F2 == 'W') |   #23,24
+                        (F1 == 'J' & F4 == 'A' & F2 == 'L') |   #13,14
+                        (F1 == 'J' & F4 == 'A' & F2 == 'S')     #15,16
+)
+
+PERCE_VERB = subset(T_DATA,
+                        (F1 == 'I' & F4 == 'V' & F2 == 'P') |   #9,10
+                        (F1 == 'I' & F4 == 'O' & F2 == 'L') |   #5,6
+                        (F1 == 'I' & F4 == 'O' & F2 == 'S') |   #7,8
+                        (F1 == 'J' & F4 == 'V' & F2 == 'P') |   #21,22
+                        (F1 == 'J' & F4 == 'O' & F2 == 'S') |   #19,20
+                        (F1 == 'J' & F4 == 'O' & F2 == 'L')     #17,18
+)
+
+# Data of motor verbs related critical words
+# G1
+CRITIC_RT_M1 <- matrix(
+    CRITIC_RT[c(11,12,3,4,1,2)], 2, 3,
+    dimnames = list(c("C", "I"), c("Twist","Tight", "Loose"))
+)
+
+CRITIC_RTse_M1 <- matrix(
+    rep(CRITIC_RTsd[c(6,2,1)],each=2)*t(1/rep(sqrt(nA),6)  ), 2, 3,
+    dimnames = list(c("C", "I"), c("Twist","Tight", "Loose"))
+)
+
+# G2
+CRITIC_RT_M2 <- matrix(
+    CRITIC_RT[c(23,24,15,16,13,14)], 2, 3,
+    dimnames = list(c("C", "I"), c("Twist","Tight", "Loose"))
+)
+
+CRITIC_RTse_M2 <- matrix(
+    rep(CRITIC_RTsd[c(12,8,7)],each=2)*t(1/rep(sqrt(nA),6)  ), 2, 3
+)
+
+# Data of perception verbs related critical words
+# G1
+CRITIC_RT_P1 <- matrix(
+    CRITIC_RT[c(9,10,7,8,5,6)], 2, 3,
+    dimnames = list(c("C", "I"), c("Pick","Hard", "Soft"))
+)
+
+CRITIC_RTse_P1 <- matrix(
+    rep(CRITIC_RTsd[c(5,4,3)],each=2)*t(1/rep(sqrt(nA),6)  ), 2, 3
+)
+
+# G2
+CRITIC_RT_P2 <- matrix(
+    CRITIC_RT[c(21,22,17,18,19,20)], 2, 3,
+    dimnames = list(c("C", "I"), c("Pick","Hard", "Soft"))
+)
+
+CRITIC_RTse_P2 <- matrix(
+    rep(CRITIC_RTsd[c(11,9,10)],each=2)*t(1/rep(sqrt(nA),6)  ), 2, 3
+)
+
+## Arrange  Sentence-Picture Verification DATA
+## F1 = Series (A, B)
+## F2a = Actions (W = Twist; P = Pick)
+## F3 = Compatibility (C = Compatible, I = Incompatible)
+
+F2a <- c(
+    rep(c('W', 'W', 'P', 'P'), nA),
+    rep(c('P', 'P', 'W', 'W'), nB)
+)
+
+# Data of Sentence-Picture Verification
+SP_RT_M <- matrix(
+  AB_RT,2,4,
+  dimnames = list(c("Match", "Mismatch"), c("Close", "Grasp", "Hold", "Open"))
+)
+
+SP_RTse_M <- matrix(
+     AB_RTsd*c(1/rep(sqrt(nA),4), 1/rep(sqrt(nB),4))
+    ,2,4
+)
+``` 
+- To verify the picture matched **the initiation of action**.
+- Between-participants associations ~ Group 1:(A) & (D), Group 2:(B) & (C)
+
+*** =left
+**<font color="red">Manipulate object</font>**  
+- (A)I will close the lid of the jar.
+- `r fig("Open_Jar.jpg", 50)`  
+- (B)I will open the lid of the jar.
+- `r fig("Close_Jar.jpg", 50)`  
+
+*** =right
+**<font color="red">Touch object</font>**  
+- (C)I will pick up the cube.
+- `r fig("Cube.jpg", 50)`  
+- (D)I will pick up the sponge.  
+- `r fig("Ball.jpg", 50)`  
+
+--- &twocol
+## Critical Task: 2015
+Critical words for each between-particiapnt groups in terms of the counter balanced principle. There were `r nlevels(T_DATA$ID)` participants in this study.
+
+*** =left
+- <font color="red">Manipulate object</font>
+  + Group 1: <font color="blue">**Turn**, **Tide**, **Tough**</font>
+  + Group 2: <font color="green">**Turn**, **Loose**, **Soft**</font>
+
+- Group 1 acquired the relatively strong motor experience in this situation.
+
+- Group 2 acquired the relatively weak motor experience in this situation.
+
+*** =right
+- <font color="red">Touch object</font>
+  + Group 1: <font color="green">**Touch**, **Tough**, **Tide**</font>
+  + Group 2: <font color="blue">**Touch**, **Soft**, **Loose**</font>
+
+- Group 1 acquired the relatively strong perceptual experience in this situation.
+
+- Group 2 acquired the relatively weak perceptual experience in this situation.
+
+--- &twocol w1:35% w2:65%
+## Results: 2015 Manipulate Object
+
+*** =left
+>- This situation signficantly activiated the representations of actions <font color="red">when the particiapnts simulate the relatively strong motor experiences</font>.
+>- Simulating relatively weak motor experience barely activated the representations in this situation. 
+
+*** =right
+```{r Motor2015, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, ,out.width='225cm', out.height='400cm',fig.show='hold'}
+barplot2(
+    CRITIC_RT_M1, beside=T,xpd=F,
+    legend = c("Compatible","Incompatible"),
+    ylim = c(350,500),ylab="Response Time(ms)",
+    col = c(rep(c("black","white"), 3)),
+    names.arg = colnames(CRITIC_RT_M1),
+    main = "Group 1",
+    plot.ci = TRUE, 
+    ci.l = matrix((CRITIC_RT_M1 - CRITIC_RTse_M1), nrow = 2), 
+    ci.u = matrix((CRITIC_RT_M1 + CRITIC_RTse_M1), nrow = 2),
+    panel.first = TRUE
+)
+barplot2(
+    CRITIC_RT_M2, beside=T,xpd=F,
+    legend = c("Compatible","Incompatible"),
+    ylim = c(350,500),ylab="Response Time(ms)",
+    col = c(rep(c("black","white"), 3)),
+    names.arg = colnames(CRITIC_RT_M2),
+    main = "Group 2",
+    plot.ci = TRUE, 
+    ci.l = matrix((CRITIC_RT_M2 - CRITIC_RTse_M2), nrow = 2), 
+    ci.u = matrix((CRITIC_RT_M2 + CRITIC_RTse_M2), nrow = 2),
+    panel.first = TRUE
+)
+```
+
+--- &twocol w1:35% w2:65%
+## Results: 2015 Touch Object
+
+*** =left
+>- This situation barely established the implicition association.
+>- Simulating perceptual experience appears to be more implicit than simulating motor experience. 
+
+*** =right
+```{r Percept2015, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, ,out.width='225cm', out.height='400cm',fig.show='hold'}
+barplot2(
+    CRITIC_RT_P1, beside=T,xpd=F,
+    legend = c("Compatible","Incompatible"),
+    ylim = c(350,500),ylab="Response Time(ms)",
+    col = c(rep(c("black","white"), 3)),
+    names.arg = colnames(CRITIC_RT_P1),
+    main = "Group 1",
+    plot.ci = TRUE, 
+    ci.l = matrix((CRITIC_RT_P1 - CRITIC_RTse_P1), nrow = 2), 
+    ci.u = matrix((CRITIC_RT_P1 + CRITIC_RTse_P1), nrow = 2),
+    panel.first = TRUE
+)
+barplot2(
+    CRITIC_RT_P2, beside=T,xpd=F,
+    legend = c("Compatible","Incompatible"),
+    ylim = c(350,500),ylab="Response Time(ms)",
+    col = c(rep(c("black","white"), 3)),
+    names.arg = colnames(CRITIC_RT_P2),
+    main = "Group 2",
+    plot.ci = TRUE, 
+    ci.l = matrix((CRITIC_RT_P2 - CRITIC_RTse_P2), nrow = 2), 
+    ci.u = matrix((CRITIC_RT_P2 + CRITIC_RTse_P2), nrow = 2),
+    panel.first = TRUE
+)
+```
+
+--- &twocol w1:35% w2:65%
+## Results: 2015 Matching Effects
+
+*** =left
+>- Matching effects are able to be measured in terms of the criterion that the participants imagined the action on the object.
+>- Both the situation, "Manipulate object" and "Touch object", could cause the matching effects.
+
+*** =right
+```{r Matching2015, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, ,out.width='225cm', out.height='400cm',fig.show='hold'}
+SP_RT1 <- barplot2(
+    SP_RT_M[,c(1,4)], beside=T,xpd=F,
+    legend = c("Match","MisMatch"),
+    ylim = c(350,550),ylab="Response Time(ms)",
+    names.arg = colnames(SP_RT_M[,c(1,4)]),
+    col = c(rep(c("black","white"),2)),         
+    plot.ci = TRUE, 
+    ci.l = (SP_RT_M[,c(1,4)] - SP_RTse_M[,c(1,4)]), 
+    ci.u = (SP_RT_M[,c(1,4)] + SP_RTse_M[,c(1,4)]),
+    main = "Manipulate Object",
+    panel.first = TRUE
+)
+SP_RT2 <- barplot2(
+  SP_RT_M[,c(3,2)], beside=T,xpd=F,
+  legend = c("Match","Mismatch"),
+  ylim = c(350,550),ylab="Response Time(ms)",
+  names.arg = colnames(SP_RT_M[,c(3,2)]),
+  col = c(rep(c("black","white"),2)),         
+  plot.ci = TRUE, 
+  ci.l = (SP_RT_M[,c(3,2)] - SP_RTse_M[,c(3,2)]), 
+  ci.u = (SP_RT_M[,c(3,2)] + SP_RTse_M[,c(3,2)]),
+  main = "Touch Object",
+  panel.first = TRUE
+)
+```
+
+--- &twocol
+## Summary: What We Learned during 2014 and 2015
+
+*** =left
+**2014**  
+>- Motor experiences are the (situational) representations referring to the action executed in the situation, the feelings generated after the action executed. 
+>- Relatively stronger motor experiences have the benefit to associate the (situational) representations and the response key.
+>- Only the situation corresponding to the stronger motor experiences caused the significant effects.
+
+*** =right
+**2015**  
+>- The settings of situation could restrict to the hand movements on the object.
+>- The responses of the probe task (sentence-picture verification) are measureable.
+>- By which expression, the probe sentences could generate the strongest motor experiences?
+
+--- .segue .dark
+## Variety of Mental Simulation
+
+--- .class #id
+## Settings of Probe Sentences
+|Study |Perspective |Action |Feature for Matching |
+|:------:|:----------:|:-----:|:-------------:|
+|Stanfield and Zwaan (2001)|Third |Actions(look, catch, turn ...) |Orientation |
+|Zwaan, Stanfield, and Yaxley (2002)|First|Observe(There was ...)|Shape|
+|Connell (2007)|Third|Actions(look, stop, taste ...)|Color|
+|Zwaan and Pecher, (2012)|First, Third|Actions, Observe|Orientation,Shape,Color|
+|Pecher, van Dantzig, Zwaan, and Zeelenberg(2009)|Third|Actions(observe*, take, pull ...)|Orientation,Shape|
+|Rommers, Meyer, and Huettig, (2013)|Third|Actions(observe*, take, pull ...)|Orientation,Shape|
+
+
+--- .class #id
+## How Many Large Objects had been Studied?
+|Study |Total Objects |# of large objects |Note |Effect |
+|:------:|:----------:|:-----:|:-------------:|:---:|
+|Stanfield and Zwaan (2001)|24|1|wheel|Facilitation |
+|Zwaan, Stanfield, and Yaxley (2002)|28|4|airplane, sailboat, eagle, hockey player|Facilitation |
+|Connell (2007)|12|5|traffic light, tree, bear, lamb, sky|Inhibition |
+|Zwaan and Pecher, (2012)|24,28,24|10|Replication of three studies|Facilitation |
+|Pecher, van Dantzig, Zwaan, and Zeelenberg(2009)|52(O) + 40(S)|8|airplaneground, caruse, dooruse, hockeyplaying, gasuse, gitaarh, sailboatnosails, suitcaseuse |Facilitation |
+|Rommers, Meyer, and Huettig, (2013)|52(O) + 40(S)|8|From PDZ & Z(2009); Used across three tasks|No(for naming) |
+
+--- .class #id
+## Properties of Situation 
+>1. Scale of Object
+  + Large objects were rarely selected in the current studies.
+  + Large objects might need complicated mental simulation than small objects.
+>2. Type of Action
+  + Shape <-> Observe (only for ZS & Y, 2002)
+  + Orientation, Color <-> Observe, Manipulate, Move, ...
+  + Which action, observe and move, would generate more mental simulation of motor experience / less mental simulation of visual experience?
+>3. Pespective of Subject
+  + Shape <-> First(ZS & Y, 2002), Third(PDZ & Z, 2009)
+  + Orientation, Color <-> Third
+  + Would first-person perspective generate more mental simulation of visual experience / less mental simulation of motor experience?
+
+--- .segue .dark
+## Examine Matching Effects
+
+--- .class #id
+## Primary Questions
+>1. When the perspective of subject (first vs. third), the types of actions (observe object, move object), and the scale of object (size, weight, …) are manipulated between situations, how would <font color = "red">the simulation of visual experience</font> change with the situation? Would the changes influence <font color = "red">the matching effects</font>?
+>2. If the simulation of a situation could be enhanced by multiple pairs of sentences and objects, could we find <font color = "red">the effects of implicit association</font> for the critical words representing the actions in the situation?
+
+--- .class #id
+## Hypotheses: Matching Effects
+>- Simulating visual experiences would cause the largest matching effect in this situation:
+  + First-person perspective
+  + Verb expersses "to see something"
+  + Large object
+>- For the probe sentences expressing the first-person perspective, the verbs referring to "see something" could cause the significant matching effects on <font color = "red">the orientation of large and small objects</font>.  
+>- For the probe sentences expressing the first-person perspective, the verbs referring to "manipulate something" could cause the significant matching effects only on <font color = "red">the orientation of large objects</font>.
+>- For the probe sentences expressing the third-person perspective, the verbs referring to <font color = "red">"manipulate something"</font>, compared to the verbs referring to "see something", could cause larger matching effects on the orientation of large objects.
+
+--- .class #id
+## Design: Matching Effects
+>- Between-participant variables
+  + Perspectives: first, third
+  + Types of action: to see something, to manipulate something
+  + Languages: Chinese, Dutch(English)
+>- Within-participant variables
+  + Scale of object: large(40), small(40)
+  + Orientation of object: default(from original pool), rotated
+  + Matching of sentence and picture: matching, dismatching
+>- Measurements
+  + ${RT_Matching}$ - ${RT_Dismatching}$
+  + *Orientation of object* will be averaged when this variable does not cause the significant main effect.
+
+--- &twocol
+## Default: Probe Sentence and Matched Picture
+
+*** =left
+- First-person, Observe
+ + I see the ambulance that is carrying the patient to the hospital.
+- First-person, Manipulate
+ + I pushed the ambulance that is carrying the patient to the hospital.
+- Third-person, Observe
+ + Jack saw the ambulance that is carrying the patient to the hospital.
+- Third-person, Manipulate
+ + Superman pushed the ambulance that is carrying the patient to the hospital.
+
+*** =right
+<img src='assets/img/008-ambulance_ambulance.GIF'></img>
+- Original Pool: [299 pictures for psycholingusitic studies](http://leadserv.u-bourgogne.fr/bases/pictures/)
+
+--- &twocol
+## Rotated: Probe Sentence and Matched Picture
+
+*** =left
+- First-person, Observe
+ + I see the jeep that is climbing the slope.
+- First-person, Manipulate
+ + I pushed the jeep that is climbing the slope.
+- Third-person, Observe
+ + Jack saw the jeep that is climbing the slope.
+- Third-person, Manipulate
+ + Superman pushed the jeep that is climbing the slope.
+
+*** =right
+<img src='assets/img/jeep_r.jpg', style='width: 90%'></img>
+- Original Pool: [Bank of standardized stimuli (BOSS)](https://sites.google.com/site/mathieubrodeur/Home/boss)
+
+--- &twocol
+## Predictions: Matching Effects
+
+*** =left
+```{r predictions, echo=FALSE, message=FALSE, warning=FALSE}
+# Four figures to show the predicted results based on the hypothesis
+require(ggplot2)
+Predict_RT <- data.frame(
+        RT = c(400,500,400,500,500,600,600,700),
+        Size_of_Object = factor(rep(c("Large Objects","Small Objects"),each = 4)),
+        Orientation_of_Object = factor(rep(rep(c("Default Orientation","Rotated Orientation"),each = 2), 2), levels = c("Default Orientation","Rotated Orientation")),
+        Matching = rep(c("Match","Mismatch"),4)
+)
+#p <- ggplot(Predict_RT, aes(factor(paste(Perspective, Types_of_Action), levels = c("First Observe", "First Manipulate", "Third Observe", "Third Manipulate")), RT,  group = paste(Scale_of_Object, Matching), fill = Matching)) + 
+p <- ggplot(Predict_RT, aes(Matching, RT, fill = Matching)) + 
+        geom_bar(
+                stat = "identity", position = "dodge",
+                colour = "black"
+        ) +
+        coord_cartesian(ylim = c(300, 800)) +
+        scale_fill_manual(values = c("black", "white")) + 
+        xlab("") + 
+        ylab("Reaction Time") 
+p + facet_grid(Size_of_Object ~ Orientation_of_Object)
+#
+#        xlab("Perspective & Type of Action") + 
+#print(p)
+#ggsave("/asserts/img/predict.png",width = 40, height = 20)
+```
+
+*** =right
+- Suggestions collected from 20160308 BBC talk:
+ + Narrrow down the scope to `scale of object` and `type of action`. The comparison of motor experiences is the matter for this project. I'll fix the perspective in the current experiments.
+ + Phase 2 (Primary Question 2) will solve the problem left by the study 2015: `Would the readers have the imagination when they read the sentence without explict or implict instructions? `
+
+---
+## Match Effect of Orientation: Due at 2016/4/25
+- Particiapnts: 20 Taiwan undergraduates, 22 EUR undergraduates
+- Procedure: identical to Zwaan & Pecher (2012)
+- Factors: Langauge (Chinese, English) X Size of Object (Large, Small) X Picture Orientation (Default, Rotated) X Match(Yes, No)
+- Default = original picture; Rotated = modified picture
+- Hypothesis: **(1)**Large object will cause match effect of orientation easier than small object; **(2)** orientation will be independent from size; **(3)** There will be comparable results between Chinese and English
+
+---
+## Example of Large Object 
+|Sentences|Match|Dismatch|
+|---|---|---|
+|I see the empty bathtub.(Default)|`r fig("020-baignoire_bathtub.jpg")`|`r fig("020-baignoire_bathtub_r.jpg")`|
+|I see the falling bathtub.(Rotated)|`r fig("020-baignoire_bathtub_r.jpg")`|`r fig("020-baignoire_bathtub.jpg")`|
+
+---
+## Example of Small Object
+|Sentences|Match|Dismatch|
+|---|---|---|
+|I see the key chain left on the table.(Default)|`r fig("keychain.jpg")`|`r fig("keychain_r.jpg")`|
+|I see the key chain hanged on the wall.(Rotated)|`r fig("keychain_r.jpg")`|`r fig("keychain.jpg")`|
+
+---
+## Descriptive analysis: Chinese
+`r fig("Chinese.jpg")`
+
+---
+## ANOVA: Chinese
+```{r Chinese, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+load("./assets/saved/20160425.RData")
+print(xtable(CHINESE_ANALYSIS$RT_analysis),type="html",floating=FALSE)
+```
+
+---
+## Descriptive analysis: English
+`r fig("English.jpg")`
+
+---
+## ANOVA: English
+```{r English, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+load("./assets/saved/20160425.RData")
+print(xtable(ENGLISH_ANALYSIS$RT_analysis),type="html",floating=FALSE)
+```
+
+---
+## Summary and Thinking
+1. So far there are match effects across langauges
+2. Size of objects affected Taiwan undergraduates but EUR undergraduates.
+3. Orientation of picture (Default, Rotated) affected each lab in different ways. Interaction of SIZE and PIC is significant for EUR but for Taiwan.
+4. Taiwan undergraduates read a probe serence in `r round(C_Reading_Time[4])` ms. EUR undergraduates read a probe sentence in `r round(E_Reading_Time[4])` ms.
+5. Position of object term in the probe sentence might be the critical. In Chinese sentences, the object term must be the last word. In English sentences, most object terms are in the middle.
+ 
+<!--
+
+&twocol
+## Preregistered challenge
+
+*** =left
+`r fig("challenge.png")`
+
+*** =right
+`r fig("project.png")`
+
+.segue .dark
+## Thanks!</br></br> Welcome your comments
+
+## Hypotheses: Compatibility Effects
+>- 
+>- 
+
+
+## Studies: Compatibility Effects
+>- Between-participant variables
+
+>- Within-paricipant variables
+
+>- Measurements
+
+## Predictions: Compatibility Effects
+-->
