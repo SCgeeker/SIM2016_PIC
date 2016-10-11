@@ -54,3 +54,36 @@ BF.ES[1]/BF.ES[2]
 
 BFmeta <- meta.ttestBF( t = t_metric[seq(1,40, by=10)], n1 = t_N, nullInterval = c(0, Inf), rscale = 1)
 BFmeta
+
+#require(data.table)
+EUR_D_L_M_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Orientation == "D" & RT_DF$Size=="L" & RT_DF$Match == "Y",]$RT
+EUR_D_L_N_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Orientation == "D" & RT_DF$Size=="L" & RT_DF$Match == "N",]$RT
+
+ttestBayesian_EUR_D_L <- ttestBF(x = EUR_D_L_M_RT, y = EUR_D_L_N_RT, paired = TRUE, nullInterval = c(0, Inf))
+BFplus0_EUR_D_L <- extractBF(ttestBayesian_EUR_D_L, onlybf=TRUE)[1]
+
+EUR_R_L_M_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Orientation == "R" & RT_DF$Size=="L" & RT_DF$Match == "Y",]$RT
+EUR_R_L_N_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Orientation == "R" & RT_DF$Size=="L" & RT_DF$Match == "N",]$RT
+
+ttestBayesian_EUR_R_L <- ttestBF(x = EUR_R_L_M_RT, y = EUR_R_L_N_RT, paired = TRUE, nullInterval = c(0, Inf))
+BFplus0_EUR_R_L <- extractBF(ttestBayesian_EUR_R_L, onlybf=TRUE)[1]
+
+
+EUR_S_M_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Size=="S" & RT_DF$Match == "Y",]$RT
+EUR_S_N_RT <- RT_DF[RT_DF$Lang == "E" & RT_DF$Size=="S" & RT_DF$Match == "N",]$RT
+
+ttestBayesian_EUR_S <- ttestBF(x = EUR_S_M_RT, y =EUR_S_N_RT, paired = TRUE, nullInterval = c(0, Inf))
+BFplus0_EUR_S <- extractBF(ttestBayesian_EUR_S, onlybf=TRUE)[1]
+
+TCU_L_M_RT <- RT_DF[RT_DF$Lang == "C" & RT_DF$Size=="L" & RT_DF$Match == "Y",]$RT
+TCU_L_N_RT <- RT_DF[RT_DF$Lang == "C" & RT_DF$Size=="L" & RT_DF$Match == "N",]$RT
+
+ttestBayesian_TCU_L <- ttestBF(x=TCU_L_M_RT, y=TCU_L_N_RT, paired = TRUE,nullInterval = c(0, Inf))
+BFplus0_TCU_L <- extractBF(ttestBayesian_TCU_L, onlybf=TRUE)[1]
+
+
+TCU_S_M_RT <- RT_DF[RT_DF$Lang == "C" & RT_DF$Size=="S" & RT_DF$Match == "Y",]$RT
+TCU_S_N_RT <- RT_DF[RT_DF$Lang == "C" & RT_DF$Size=="S" & RT_DF$Match == "N",]$RT
+
+ttestBayesian_TCU_S <- ttestBF(x=TCU_L_M_RT, y=TCU_L_N_RT, paired = TRUE, nullInterval = c(0, Inf))
+BFplus0_TCU_L <- extractBF(ttestBayesian_TCU_L, onlybf=TRUE)[1]

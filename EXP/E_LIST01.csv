@@ -1,129 +1,129 @@
-"Size","Orien","Match","Probe","Target","correct_response"
-"L","H","Y","The ivory was put on the ground.","STI_EXP02/LARGE/Ivory_H.jpg","/"
-"L","H","Y","The dolphin is swimming under the sae.","STI_EXP02/LARGE/dolphin_H.png","/"
-"L","H","Y","The flaps of this plane were colsed while flying.","STI_EXP02/LARGE/flap_H.jpg","/"
-"L","H","Y","The cannon shut the pirate ship.","STI_EXP02/LARGE/Cannon_H.jpg","/"
-"L","H","Y","The crane arm was folded in the truck.","STI_EXP02/LARGE/crane_H.png","/"
-"L","H","Y","The killer whale is moving under the sea.","STI_EXP02/LARGE/killer-whale_H.jpg","/"
-"L","H","Y","The canoe is sailing on the river.","STI_EXP02/LARGE/canoe_H.jpg","/"
-"L","H","Y","The anchor was on the bottom of the sea.","STI_EXP02/LARGE/anchor_H.jpg","/"
-"L","H","N","The coffin was to be buried.","STI_EXP02/LARGE/coffin_H.jpg","/"
-"L","H","N","The drawbridge blocks the gate.","STI_EXP02/LARGE/Drawbridge_H.jpg","/"
-"L","H","N","The US flag was hanged from a balcony stock.","STI_EXP02/LARGE/US_flag_H.jpg","/"
-"L","H","N","The pillar stands in the Greek temple.","STI_EXP02/LARGE/column_H.jpg","/"
-"L","H","N","The smoke is released from the chimney when it is windless.","STI_EXP02/LARGE/smoke_H.jpg","/"
-"L","H","N","The stream is released by the whale under the sea.","STI_EXP02/LARGE/stream_H.jpg","/"
-"L","H","N","The carp was caught by the angler.","STI_EXP02/LARGE/Carp_H.jpg","/"
-"L","H","N","The cabinet is in the corner of the office.","STI_EXP02/LARGE/filingcabinet_H.jpg","/"
-"L","V","Y","The luggage case was beside the passenger.","STI_EXP02/LARGE/luggagecase_V.jpg","/"
-"L","V","Y","The beer barrel stood on the ground.","STI_EXP02/LARGE/barrel_V.jpg","/"
-"L","V","Y","The parachute was opened from the parachutist's back.","STI_EXP02/LARGE/parachute_V.jpg","/"
-"L","V","Y","The cruise missle is launched from the submarine.","STI_EXP02/LARGE/missle_V.jpg","/"
-"L","V","Y","The roller coaster is rushing from the top.","STI_EXP02/LARGE/rollercoaster_V.jpg","/"
-"L","V","Y","The flagpole stood on the ground.","STI_EXP02/LARGE/flagpole_V.jpg","/"
-"L","V","Y","The Moai stands on the ground.","STI_EXP02/LARGE/Moai_V.jpg","/"
-"L","V","Y","The electric fan was set up on the table.","STI_EXP02/LARGE/Fan_V.jpg","/"
-"L","V","N","The monkey leaned over the branch","STI_EXP02/LARGE/monkey_V.jpg","/"
-"L","V","N","The gate arms were down when the car was investigated.","STI_EXP02/LARGE/gate_arms_V.jpg","/"
-"L","V","N","The rocket is transfered to the lauch pad.","STI_EXP02/LARGE/rocket_V.jpg","/"
-"L","V","N","The dump on the truck carried the sands.","STI_EXP02/LARGE/dump-truck_H.jpg","/"
-"L","V","N","The cello was put on the table.","STI_EXP02/LARGE/cello_V.jpeg","/"
-"L","V","N","The snake moved through the sands.","STI_EXP02/LARGE/snake_V.jpg","/"
-"L","V","N","The pig carcass was on the table.","STI_EXP02/LARGE/pig_V.jpg","/"
-"L","V","N","The specimen of crocodile was on the ground.","STI_EXP02/LARGE/crocodile_V.jpg","/"
-"S","H","Y","The match is on the table.","STI_EXP02/SMALL/007-allumette_match.jpg","/"
-"S","H","Y","The cane is lying on the ground.","STI_EXP02/SMALL/066-canne_cane.jpg","/"
-"S","H","Y","The tube is on the table.","STI_EXP02/SMALL/126-eprouvette_test-tube.jpg","/"
-"S","H","Y","The flower pot is torn down by the strong wind.","STI_EXP02/SMALL/242-pot_jar.jpg","/"
-"S","H","Y","The bowling pin is knocked at the end of the runway.","STI_EXP02/SMALL/248-quille_skittle.jpg","/"
-"S","H","Y","The bottle is droped on the ground.","STI_EXP02/SMALL/beerbottle.jpg","/"
-"S","H","Y","The stick is dropped from the tree.","STI_EXP02/SMALL/branch02.jpg","/"
-"S","H","Y","The candy stick is in the candy box.","STI_EXP02/SMALL/candycane01a.jpg","/"
-"S","H","N","The carrot is just plucked by the farmer.","STI_EXP02/SMALL/carrot01.jpg","/"
-"S","H","N","The corn is plucked by the former.","STI_EXP02/SMALL/cornhusk.jpg","/"
-"S","H","N","The daisy is plucked by the tourist.","STI_EXP02/SMALL/daisy.jpg","/"
-"S","H","N","The dust pan is hanged on the wall.","STI_EXP02/SMALL/dustpan.jpg","/"
-"S","H","N","The fishing rod is beside the fisher's seat.","STI_EXP02/SMALL/fishingrod.jpg","/"
-"S","H","N","The fork is in the guest's hand.","STI_EXP02/SMALL/fork.jpg","/"
-"S","H","N","The funnel is being used by the chef.","STI_EXP02/SMALL/funnel.jpg","/"
-"S","H","N","The glue is in the nurse's hand.","STI_EXP02/SMALL/gluetube.jpg","/"
-"S","V","Y","The hat is hanged on the wall.","STI_EXP02/SMALL/hat_r.jpg","/"
-"S","V","Y","The lego is on the vertical plane.","STI_EXP02/SMALL/interlockingbuildingblock03b_r.jpg","/"
-"S","V","Y","The jeans is on the wall.","STI_EXP02/SMALL/jeans01_r.jpg","/"
-"S","V","Y","The key chain is on the wall.","STI_EXP02/SMALL/keychain_r.jpg","/"
-"S","V","Y","The leek is plucked by the farmer.","STI_EXP02/SMALL/leek_r.jpg","/"
-"S","V","Y","The measuring spoon is on the rack.","STI_EXP02/SMALL/measuringspoon_r.jpg","/"
-"S","V","Y","The gloves is on the rack.","STI_EXP02/SMALL/mitten04_r.jpg","/"
-"S","V","Y","The nail is sticked on the floor.","STI_EXP02/SMALL/nail_r.jpg","/"
-"S","V","N","The photo frame is in the drawer.","STI_EXP02/SMALL/pictureframe04_r.jpg","/"
-"S","V","N","The razor is on the washstand.","STI_EXP02/SMALL/razor01_r.jpg","/"
-"S","V","N","The screwdriver is on the table.","STI_EXP02/SMALL/screwdriver04b_r.jpg","/"
-"S","V","N","The sea shell is on the sea shore.","STI_EXP02/SMALL/seashell01_r.jpg","/"
-"S","V","N","The shoe is on the floor.","STI_EXP02/SMALL/shoe_r.jpg","/"
-"S","V","N","The stapler is on the desk.","STI_EXP02/SMALL/stapler03a_r.jpg","/"
-"S","V","N","The clipers is in the buffet.","STI_EXP02/SMALL/tongs01b_r.jpg","/"
-"S","V","N","The plastic bottle is dropped on the ground.","STI_EXP02/SMALL/waterbottle01b_r.jpg","/"
-"F","F","F","The mattress is in the bed room.","STI_EXP02/Filler/020-baignoire_bathtub.jpg","z"
-"F","F","F","The giant refinery is beside the street.","STI_EXP02/Filler/024-tonneau_barrel.jpg","z"
-"F","F","F","The film is in the camera.","STI_EXP02/Filler/025-barre_bar.jpg","z"
-"F","F","F","The capsule is on the table.","STI_EXP02/Filler/027-batterie_drum-set.jpg","z"
-"F","F","F","The sew is in the toolbox.","STI_EXP02/Filler/034-biberon_feeding-bottle.jpg","z"
-"F","F","F","The hamburger is on the plate.","STI_EXP02/Filler/035-bibliotheque_book-shelves.jpg","z"
-"F","F","F","The candle is on the altar.","STI_EXP02/Filler/041-bonbon_candy.jpg","z"
-"F","F","F","The cassette is in the recorder.","STI_EXP02/Filler/071-bateau_boat.jpg","z"
-"F","F","F","The apple is on the table.","STI_EXP02/Filler/075-carte_playing-card.jpg","z"
-"F","F","F","The eardrop is beside the box.","STI_EXP02/Filler/078-cassette_cassette.jpg","z"
-"F","F","F","The rice is in the farm.","STI_EXP02/Filler/089-chronometre_stop-watch.jpg","z"
-"F","F","F","The lifebuoy is on the deck.","STI_EXP02/Filler/093-chapiteau_big-top.jpg","z"
-"F","F","F","The cargo train is running on the rail road.","STI_EXP02/Filler/156-hot-dog_hot-dog.jpg","z"
-"F","F","F","The battlecruiser is sailing on the sea.","STI_EXP02/Filler/166-klaxon_horn.jpg","z"
-"F","F","F","The double bed is in the room.","STI_EXP02/Filler/240-pont_bridge.jpg","z"
-"F","F","F","The cruise is leaving the duck.","STI_EXP02/Filler/260-sapin_fir-tree.jpg","z"
-"F","F","F","The police car is running on the road.","STI_EXP02/Filler/282-tractopelle_digger.jpg","z"
-"F","F","F","The speedboat is sailing to the pier.","STI_EXP02/Filler/293-usine_factory.jpg","z"
-"F","F","F","The cow is living in the farm.","STI_EXP02/Filler/294-ventilateur_fan.jpg","z"
-"F","F","F","The church is beside the square.","STI_EXP02/Filler/airhockeytable.jpg","z"
-"F","F","F","The hut is in the forest.","STI_EXP02/Filler/barn.jpg","z"
-"F","F","F","The warship is sailing to the harbor.","STI_EXP02/Filler/boxtrailer.jpg","z"
-"F","F","F","The electric locomotive is running in the tunnel.","STI_EXP02/Filler/briefcaseclosed.jpg","z"
-"F","F","F","The coop is in the garden.","STI_EXP02/Filler/candle08b.jpg","z"
-"F","F","F","The tent is on the ground.","STI_EXP02/Filler/castle.jpg","z"
-"F","F","F","The SUV is running on the road.","STI_EXP02/Filler/castletower.jpg","z"
-"F","F","F","The ladder truck is running on the road.","STI_EXP02/Filler/chair.jpg","z"
-"F","F","F","The dryer is in the bathroom.","STI_EXP02/Filler/church.jpg","z"
-"F","F","F","The winch is in the factory","STI_EXP02/Filler/cooler01.jpg","z"
-"F","F","F","The hangar is beside the air plane.","STI_EXP02/Filler/cow.jpg","z"
-"F","F","F","The lighthouse is in the entrance of the harbor.","STI_EXP02/Filler/cruiseship.jpg","z"
-"F","F","F","The double mattress is in the shop.","STI_EXP02/Filler/dentalfloss03b.jpg","z"
-"F","F","F","The castle is on the hill.","STI_EXP02/Filler/desk02.jpg","z"
-"F","F","F","The cargo ship is sailing to the harbor.","STI_EXP02/Filler/dryingmachine02.jpg","z"
-"F","F","F","The truck is in the parking lot.","STI_EXP02/Filler/earring01.jpg","z"
-"F","F","F","The ball is on the billiard table.","STI_EXP02/Filler/faucet.jpg","z"
-"F","F","F","The calculator is on the desk.","STI_EXP02/Filler/ferry.jpg","z"
-"F","F","F","The Swiss army knife is on the table.","STI_EXP02/Filler/filmroll.jpg","z"
-"F","F","F","The alarm clock is on the bed.","STI_EXP02/Filler/flower.jpg","z"
-"F","F","F","The flashlight is in the suitcase.","STI_EXP02/Filler/freighttruck.jpg","z"
-"F","F","F","The Rubik's Cube is on the shelf.","STI_EXP02/Filler/fridge.jpg","z"
-"F","F","F","The computer monitor is on the desk.","STI_EXP02/Filler/fryingpan02a.jpg","z"
-"F","F","F","The dartboard is on the wall.","STI_EXP02/Filler/hangar.jpg","z"
-"F","F","F","The brand new cup is on the kitchen table.","STI_EXP02/Filler/kiwi03.jpg","z"
-"F","F","F","The shrimp is in the aquarium.","STI_EXP02/Filler/laptopopen.jpg","z"
-"F","F","F","The tooth is in the iron dish.","STI_EXP02/Filler/lighthouse.jpg","z"
-"F","F","F","The telephone is on the short table.","STI_EXP02/Filler/Generic_High_Speed_Train_01.jpg","z"
-"F","F","F","The folder is on the shelf.","STI_EXP02/Filler/mattress.jpg","z"
-"F","F","F","The ballon is in the kid's hand.","STI_EXP02/Filler/pill.jpg","z"
-"F","F","F","The couch is on the wall.","STI_EXP02/Filler/ribbon04.jpg","z"
-"F","F","F","The basketball hoop is in the field.","STI_EXP02/Filler/rubikcube.jpg","z"
-"F","F","F","The book shelf stands on the floor.","STI_EXP02/Filler/sailboat.jpg","z"
-"F","F","F","The lamp is settled under the celing.","STI_EXP02/Filler/scrubbingbrush05b.jpg","z"
-"F","F","F","The office desk is in the office.","STI_EXP02/Filler/solderingiron.jpg","z"
-"F","F","F","The printer is sending copies out.","STI_EXP02/Filler/spatula04.jpg","z"
-"F","F","F","The table tennis is beside myself.","STI_EXP02/Filler/staple.jpg","z"
-"F","F","F","The dog house is beside the door.","STI_EXP02/Filler/strap.jpg","z"
-"F","F","F","The boat is sailing near the beach.","STI_EXP02/Filler/tv.jpg","z"
-"F","F","F","The cabbage is on the shelf in the supermarket.","STI_EXP02/Filler/umbrellaopen.jpg","z"
-"F","F","F","The pinboard is on the desk table.","STI_EXP02/Filler/uprightpiano01.jpg","z"
-"F","F","F","The toy dinosaur stands on the groud.","STI_EXP02/Filler/usbkey.jpg","z"
-"F","F","F","The pork is being shown by the magician.","STI_EXP02/Filler/weight01.jpg","z"
-"F","F","F","The stopping watch is being used by the coach.","STI_EXP02/Filler/wheel01.jpg","z"
-"F","F","F","The container is in the field.","STI_EXP02/Filler/woodboard.jpg","z"
+Size,Orien,Match,Probe,Target,correct_response
+L,H,Y,The boat was sailing on the sea.,STI_EXP02/LARGE/boat_H.jpg,j
+L,H,Y,The desk was placed in front of the window.,STI_EXP02/LARGE/desk_H.jpg,j
+L,H,Y,The mattress was put on the bed.,STI_EXP02/LARGE/mattress_H.jpg,j
+L,H,Y,The cabinet was moved out of the office by two men.,STI_EXP02/LARGE/filingcabinet_H.jpg,j
+L,H,Y,The sofa was installed in the living room.,STI_EXP02/LARGE/sofa_H.jpg,j
+L,H,Y,The trap door was closed to safely move the boxes.,STI_EXP02/LARGE/trapdoor_H.jpg,j
+L,H,Y,The canoe was gliding across the river.,STI_EXP02/LARGE/canoe_H.jpg,j
+L,H,Y,The anchor was on the bottom of the sea.,STI_EXP02/LARGE/anchor_H.jpg,j
+L,H,N,The jeep was falling into the abyss.,STI_EXP02/LARGE/jeep_H.jpg,j
+L,H,N,The drawbridge blocked the gate.,STI_EXP02/LARGE/Drawbridge_H.jpg,j
+L,H,N,The bus was falling into the ravine.,STI_EXP02/LARGE/bus_H.jpg,j
+L,H,N,The window frame was set on the door.,STI_EXP02/LARGE/windowframe_H.jpg,j
+L,H,N,The ladder was lifted when the fireman climbed to the roof.,STI_EXP02/LARGE/ladder_H.jpg,j
+L,H,N,The statue of liberty replica stood in the park.,STI_EXP02/LARGE/liberty_H.jpg,j
+L,H,N,The space shuttle was ready to be launched.,STI_EXP02/LARGE/spaceshuttle_H.jpg,j
+L,H,N,The crane arm was up when the workers moved the cargo.,STI_EXP02/LARGE/crane_H.jpg,j
+L,V,Y,The Titanic was sinking to the bottom.,STI_EXP02/LARGE/Titanic_V.jpg,j
+L,V,Y,The wine barrel stood in the wine bar.,STI_EXP02/LARGE/barrel_V.jpg,j
+L,V,Y,The parachute was opened by the parachutist.,STI_EXP02/LARGE/parachute_V.jpg,j
+L,V,Y,The missle was launched from the submarine.,STI_EXP02/LARGE/missle_V.jpg,j
+L,V,Y,The jet fighter climbed through the clouds.,STI_EXP02/LARGE/jetfighter_V.jpg,j
+L,V,Y,The vending machine stood in the street corner.,STI_EXP02/LARGE/vending_V.jpg,j
+L,V,Y,The big refrigerator was put in the kitchen.,STI_EXP02/LARGE/refrigerator_V.jpg,j
+L,V,Y,The gate arms were lifted after the car was investigated.,STI_EXP02/LARGE/gate_arms_V.jpg,j
+L,V,N,The airplane was flying above the clouds.,STI_EXP02/LARGE/aeroplane_V.jpg,j
+L,V,N,The upright piano was laid in the truck.,STI_EXP02/LARGE/Uprightpiano_V.jpg,j
+L,V,N,The rocket was transferred to the launch pad.,STI_EXP02/LARGE/rocket_V.jpg,j
+L,V,N,The wrecking ball gained maximal altitude.,STI_EXP02/LARGE/wreckingball_V.jpg,j
+L,V,N,The street lantern was being transported.,STI_EXP02/LARGE/streetlantern_V.jpg,j
+L,V,N,The steel barrel was rolled onto the truck.,STI_EXP02/LARGE/steelbarrel_V.jpg,j
+L,V,N,The pig carcass was on the table.,STI_EXP02/LARGE/pig_V.jpg,j
+L,V,N,The dump truck carried the sand.,STI_EXP02/LARGE/dump-truck_H.jpg,j
+S,H,Y,The matchstick was put in the box.,STI_EXP02/SMALL/007-allumette_match.jpg,j
+S,H,Y,The cane was lying near the park bench.,STI_EXP02/SMALL/066-canne_cane.jpg,j
+S,H,Y,The tube was on the work table.,STI_EXP02/SMALL/126-eprouvette_test-tube.jpg,j
+S,H,Y,The flower pot laid down in front of the door.,STI_EXP02/SMALL/242-pot_jar.jpg,j
+S,H,Y,The bowling pin was knocked over at the end of the lane.,STI_EXP02/SMALL/248-quille_skittle.jpg,j
+S,H,Y,The key chain was on the living room table.,STI_EXP02/SMALL/keychain.jpg,j
+S,H,Y,The tree branch was dropped from the tree.,STI_EXP02/SMALL/branch02.jpg,j
+S,H,Y,The candy cane was in the candy box.,STI_EXP02/SMALL/candycane01a.jpg,j
+S,H,N,The carrot was just plucked by the farmer.,STI_EXP02/SMALL/carrot01.jpg,j
+S,H,N,The leek was to be washed.,STI_EXP02/SMALL/leek.jpg,j
+S,H,N,The daisy was plucked by the tourist.,STI_EXP02/SMALL/daisy.jpg,j
+S,H,N,The dust pan was hanged on the wall.,STI_EXP02/SMALL/dustpan.jpg,j
+S,H,N,The fishing rod was beside the angler's seat.,STI_EXP02/SMALL/fishingrod.jpg,j
+S,H,N,The spoon was placed in the right of the plate.,STI_EXP02/SMALL/spoon_H.jpg,j
+S,H,N,The funnel was being used by the chef.,STI_EXP02/SMALL/funnel.jpg,j
+S,H,N,The ointment was used on the patient’s eye.,STI_EXP02/SMALL/gluetube.jpg,j
+S,V,Y,The hat was hanged on the wall.,STI_EXP02/SMALL/hat_r.jpg,j
+S,V,Y,The toothbrush was in the cup.,STI_EXP02/SMALL/toothbrush_V.jpg,j
+S,V,Y,The bottle was on the shelf.,STI_EXP02/SMALL/beerbottle_r.jpg,j
+S,V,Y,The key chain was on the wall.,STI_EXP02/SMALL/keychain_r.jpg,j
+S,V,Y,The corn was just plucked by the farmer.,STI_EXP02/SMALL/cornhusk_r.jpg,j
+S,V,Y,The ice scream scoop was in the water bin.,STI_EXP02/SMALL/measuringspoon_r.jpg,j
+S,V,Y,The glove was on the rack.,STI_EXP02/SMALL/glove_V.jpg,j
+S,V,Y,The nail was nailed onto the wood.,STI_EXP02/SMALL/nail_r.jpg,j
+S,V,N,The photo frame was in the drawer.,STI_EXP02/SMALL/pictureframe04_r.jpg,j
+S,V,N,The razor was on the washstand.,STI_EXP02/SMALL/razor01_r.jpg,j
+S,V,N,The screwdriver was on the work bench.,STI_EXP02/SMALL/screwdriver04b_r.jpg,j
+S,V,N,The sea shell was found on the beach.,STI_EXP02/SMALL/seashell01_r.jpg,j
+S,V,N,The shoe was left by the front door.,STI_EXP02/SMALL/shoe_r.jpg,j
+S,V,N,The stapler was on the staff's desk.,STI_EXP02/SMALL/stapler03a_r.jpg,j
+S,V,N,The buffet tongs were in the drawer.,STI_EXP02/SMALL/tongs01b_r.jpg,j
+S,V,N,The plastic bottle lied in the refrigerator.,STI_EXP02/SMALL/waterbottle01b_r.jpg,j
+F,F,F,The cloth was in the wardrobe.,STI_EXP02/Filler/020-baignoire_bathtub.jpg,f
+F,F,F,The giant refinery was beside the road.,STI_EXP02/Filler/ironbarrel.jpg,f
+F,F,F,The film was in the camera.,STI_EXP02/Filler/025-barre_bar.jpg,f
+F,F,F,The capsule was on the table.,STI_EXP02/Filler/027-batterie_drum-set.jpg,f
+F,F,F,The sew was in the toolbox.,STI_EXP02/Filler/034-biberon_feeding-bottle.jpg,f
+F,F,F,The hamburger was in the plate.,STI_EXP02/Filler/035-bibliotheque_book-shelves.jpg,f
+F,F,F,The candle stood on the dinner table.,STI_EXP02/Filler/041-bonbon_candy.jpg,f
+F,F,F,The cassette was in the recorder.,STI_EXP02/Filler/071-bateau_boat.jpg,f
+F,F,F,The apple was on the table.,STI_EXP02/Filler/075-carte_playing-card.jpg,f
+F,F,F,The earring was beside the box.,STI_EXP02/Filler/078-cassette_cassette.jpg,f
+F,F,F,The rice was in the farm.,STI_EXP02/Filler/089-chronometre_stop-watch.jpg,f
+F,F,F,The lifebuoy was on the deck.,STI_EXP02/Filler/093-chapiteau_big-top.jpg,f
+F,F,F,The train was driving down the track.,STI_EXP02/Filler/156-hot-dog_hot-dog.jpg,f
+F,F,F,The battleship was navigating in the sea.,STI_EXP02/Filler/166-klaxon_horn.jpg,f
+F,F,F,The bed was in the room.,STI_EXP02/Filler/240-pont_bridge.jpg,f
+F,F,F,The airplane was driving through the runway.,STI_EXP02/Filler/260-sapin_fir-tree.jpg,f
+F,F,F,The police car was driving down the road.,STI_EXP02/Filler/282-tractopelle_digger.jpg,f
+F,F,F,The raft was moving to the pier.,STI_EXP02/Filler/293-usine_factory.jpg,f
+F,F,F,The cow was living in the farm.,STI_EXP02/Filler/294-ventilateur_fan.jpg,f
+F,F,F,The church was beside the square.,STI_EXP02/Filler/airhockeytable.jpg,f
+F,F,F,The cabin was in the forest.,STI_EXP02/Filler/barn.jpg,f
+F,F,F,The warship was sailing to the harbor.,STI_EXP02/Filler/boxtrailer.jpg,f
+F,F,F,The electric locomotive was driving through the tunnel.,STI_EXP02/Filler/briefcaseclosed.jpg,f
+F,F,F,The coop was in the garden.,STI_EXP02/Filler/candle08b.jpg,f
+F,F,F,The tent was on the ground.,STI_EXP02/Filler/castle.jpg,f
+F,F,F,The SUV was running on the road.,STI_EXP02/Filler/castletower.jpg,f
+F,F,F,The ambulance was running on the road.,STI_EXP02/Filler/chair.jpg,f
+F,F,F,The dryer was in the bathroom.,STI_EXP02/Filler/church.jpg,f
+F,F,F,The truck was in the factory,STI_EXP02/Filler/cooler01.jpg,f
+F,F,F,The hangar was beside the air plane.,STI_EXP02/Filler/cow.jpg,f
+F,F,F,The lighthouse was in the entrance of the harbor.,STI_EXP02/Filler/submarine.jpg,f
+F,F,F,The table lamp was in the shop.,STI_EXP02/Filler/dentalfloss03b.jpg,f
+F,F,F,The castle was on the hill.,STI_EXP02/Filler/desk02.jpg,f
+F,F,F,The cargo ship was navigating to the harbor.,STI_EXP02/Filler/dryingmachine02.jpg,f
+F,F,F,The motorcycle was in the parking lot.,STI_EXP02/Filler/earring01.jpg,f
+F,F,F,The ball was on the billiard table.,STI_EXP02/Filler/faucet.jpg,f
+F,F,F,The calculator was on the desk.,STI_EXP02/Filler/ferry.jpg,f
+F,F,F,The Swiss army knife was on the table.,STI_EXP02/Filler/filmroll.jpg,f
+F,F,F,The alarm clock was on the bed.,STI_EXP02/Filler/flower.jpg,f
+F,F,F,The flashlight was in the suitcase.,STI_EXP02/Filler/freighttruck.jpg,f
+F,F,F,The Rubik's Cube was on the shelf.,STI_EXP02/Filler/microwave.jpg,f
+F,F,F,The computer monitor was on the desk.,STI_EXP02/Filler/fryingpan02a.jpg,f
+F,F,F,The dartboard was on the wall.,STI_EXP02/Filler/hangar.jpg,f
+F,F,F,The cup was on the kitchen table.,STI_EXP02/Filler/kiwi03.jpg,f
+F,F,F,The shrimp was in the aquarium.,STI_EXP02/Filler/laptopopen.jpg,f
+F,F,F,The tooth was in the iron dish.,STI_EXP02/Filler/lighthouse.jpg,f
+F,F,F,The telephone was on the short table.,STI_EXP02/Filler/Generic_High_Speed_Train_01.jpg,f
+F,F,F,The folder was on the shelf.,STI_EXP02/Filler/pillow.jpg,f
+F,F,F,The balloon was in the kid's hand.,STI_EXP02/Filler/pill.jpg,f
+F,F,F,The lamp was on the wall.,STI_EXP02/Filler/ribbon04.jpg,f
+F,F,F,The basketball hoop was beside the field.,STI_EXP02/Filler/rubikcube.jpg,f
+F,F,F,The book shelf was in the room.,STI_EXP02/Filler/sailboat.jpg,f
+F,F,F,The fan was settled under the ceiling.,STI_EXP02/Filler/scrubbingbrush05b.jpg,f
+F,F,F,The chair was in the office.,STI_EXP02/Filler/solderingiron.jpg,f
+F,F,F,The printer was in the right of the table.,STI_EXP02/Filler/spatula04.jpg,f
+F,F,F,The table tennis was in the room.,STI_EXP02/Filler/staple.jpg,f
+F,F,F,The dog house was beside the door.,STI_EXP02/Filler/strap.jpg,f
+F,F,F,The umbrella was on the beach.,STI_EXP02/Filler/tv.jpg,f
+F,F,F,The cabbage was in the shelf.,STI_EXP02/Filler/umbrellaopen.jpg,f
+F,F,F,The hammer was on the desk table.,STI_EXP02/Filler/uprightpiano01.jpg,f
+F,F,F,The toy dinosaur stood on the table.,STI_EXP02/Filler/usbkey.jpg,f
+F,F,F,The playing card was in the hand of the magician.,STI_EXP02/Filler/weight01.jpg,f
+F,F,F,The stopping watch was in the hand of the coach.,STI_EXP02/Filler/wheel01.jpg,f
+F,F,F,The trash can was on the side way.,STI_EXP02/Filler/woodboard.jpg,f
