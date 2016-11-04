@@ -1,0 +1,129 @@
+Size,Orien,Match,Probe,Target,correct_response
+L,V,Y,De boot zonk in de zee.,STI_EXP02/LARGE/boat_V.jpg,j
+L,V,Y,Het bureau stond rechtop in de garage.,STI_EXP02/LARGE/desk_V.jpg,j
+L,V,Y,De matras werd tegen de muur gezet.,STI_EXP02/LARGE/mattress_V.jpg,j
+L,V,Y,De kast was in het kantoor geplaatst.,STI_EXP02/LARGE/filingcabinet_V.jpg,j
+L,V,Y,De bank werd verplaatst op de steekwagen.,STI_EXP02/LARGE/sofa_V.jpg,j
+L,V,Y,De valdeur werd geopend om de kelder in te gaan.,STI_EXP02/LARGE/trapdoor_V.jpg,j
+L,V,Y,De kano daalde vanaf de bovenkant van de waterval,STI_EXP02/LARGE/canoe_V.jpg,j
+L,V,Y,Het anker werd neergelaten.,STI_EXP02/LARGE/anchor_V.jpg,j
+L,V,N,De jeep reed op de weg.,STI_EXP02/LARGE/jeep_V.jpg,j
+L,V,N,De ophaalbrug werd neergelaten over de gracht.,STI_EXP02/LARGE/Drawbridge_V.jpg,j
+L,V,N,De bus reed op de weg,STI_EXP02/LARGE/bus_V.jpg,j
+L,V,N,Het raamkozijn werd in het plafond geplaatst,STI_EXP02/LARGE/windowframe_V.jpg,j
+L,V,N,De ladder werd gedragen door de brandweerman.,STI_EXP02/LARGE/ladder_V.jpg,j
+L,V,N,De replica van het vrijheidsbeeld werd naar het park verplaatst.,STI_EXP02/LARGE/liberty_V.jpg,j
+L,V,N,De space shuttle werd naar het museum vervoerd.,STI_EXP02/LARGE/spaceshuttle_V.jpg,j
+L,V,N,De kraanarm was omlaag toen de kraanwagen stopte.,STI_EXP02/LARGE/crane_V.jpg,j
+L,H,Y,De Titanic werd naar zijn bestemming genavigeerd.,STI_EXP02/LARGE/Titanic_H.jpg,j
+L,H,Y,Het wijnvat werd over de vloer gerold.,STI_EXP02/LARGE/barrel_H.JPG,j
+L,H,Y,De parachute werd geopend achter het vliegtuig.,STI_EXP02/LARGE/Parachute_H.jpg,j
+L,H,Y,De raket vloog over de zee.,STI_EXP02/LARGE/missle_H.jpg,j
+L,H,Y,De straaljager vloog onder de wolken.,STI_EXP02/LARGE/jetfighter_H.jpg,j
+L,H,Y,De verkoopautomaat lag in de vrachtwagen.,STI_EXP02/LARGE/vending_H.jpg,j
+L,H,Y,De grote koelkast lag achterin de pick-up truck.,STI_EXP02/LARGE/refrigerator_H.jpg,j
+L,H,Y,De slagbomen daalden toen de auto werd onderzocht.,STI_EXP02/LARGE/gate_arms_H.jpg,j
+L,H,N,Het vliegtuig daalde door de wolken.,STI_EXP02/LARGE/aeroplane_H.jpg,j
+L,H,N,De piano werd het podium opgereden.,STI_EXP02/LARGE/Uprightpiano_H.jpg,j
+L,H,N,De raket werd gelanceerd naar de ruimte.,STI_EXP02/LARGE/rocket_H.jpg,j
+L,H,N,De metalen sloopkogel sloeg tegen de muur.,STI_EXP02/LARGE/wreckingball_H.jpg,j
+L,H,N,De straatlantaarn stond langs de weg.,STI_EXP02/LARGE/streetlantern_H.jpg,j
+L,H,N,Het stalen vat stond in de fabriek.,STI_EXP02/LARGE/steelbarrel_H.jpg,j
+L,H,N,Het varkenskarkas hing in de vrieshal.,STI_EXP02/LARGE/pig_H.jpg,j
+L,H,N,De vrachtwagen loste het zand.,STI_EXP02/LARGE/dump_truck_V.JPG,j
+S,V,Y,De lucifer werd vastgehouden door mijn vingers,STI_EXP02/SMALL/007-allumette_match_r.jpg,j
+S,V,Y,De stok werd vastgehouden door de bejaarde.,STI_EXP02/SMALL/066-canne_cane_r.jpg,j
+S,V,Y,De reageerbuis stond in het rek.,STI_EXP02/SMALL/126-eprouvette_test-tube_r.jpg,j
+S,V,Y,De bloempot stond voor de deur,STI_EXP02/SMALL/242-pot_jar_r.jpg,j
+S,V,Y,De bowlingkegel stond aan het einde van de baan.,STI_EXP02/SMALL/248-quille_skittle_r.jpg,j
+S,V,Y,De sleutelbos hing aan de muur.,STI_EXP02/SMALL/keychain_r.jpg,j
+S,V,Y,De boomtak werd in de grond gestoken.,STI_EXP02/SMALL/branch02_r.jpg,j
+S,V,Y,De zuurstok hing in de kerstboom.,STI_EXP02/SMALL/candycane01a_r.jpg,j
+S,V,N,De wortel lag op de lopende band.,STI_EXP02/SMALL/carrot01_r.jpg,j
+S,V,N,De prei werd op het aanrecht gelegd,STI_EXP02/SMALL/leek_r.jpg,j
+S,V,N,Het madeliefje was op de vloer van de bloemenwinkel gevallen,STI_EXP02/SMALL/daisy_r.jpg,j
+S,V,N,Het stofblik werd achtergelaten op de garagevloer.,STI_EXP02/SMALL/dustpan_r.jpg,j
+S,V,N,De hengel werd vastgehouden door de visser,STI_EXP02/SMALL/fishingrod_r.jpg,j
+S,V,N,De lepel werd boven het bord geplaatst,STI_EXP02/SMALL/spoon_V.jpg,j
+S,V,N,De trechter lag naast de kommen.,STI_EXP02/SMALL/funnel_r.jpg,j
+S,V,N,De zalf lag in de lade.,STI_EXP02/SMALL/gluetube_r.jpg,j
+S,H,Y,De hoed stond op het hoofd van het model,STI_EXP02/SMALL/hat.jpg,j
+S,H,Y,De tandenborstel lag op de wastafel,STI_EXP02/SMALL/toothbrush_H.jpg,j
+S,H,Y,De fles werd in het wijnrek gelegd.,STI_EXP02/SMALL/beerbottle.jpg,j
+S,H,Y,De spijkerbroek lag op het bed.,STI_EXP02/SMALL/jeans01.jpg,j
+S,H,Y,De graanschil was op de grond gevallen,STI_EXP02/SMALL/cornhusk.jpg,j
+S,H,Y,De ijslepel was achtergelaten op de kast,STI_EXP02/SMALL/measuringspoon.jpg,j
+S,H,Y,De handschoen lag op de autostoel,STI_EXP02/SMALL/glove_H.jpg,j
+S,H,Y,De spijker lag op de bodem van de gereedschapskist.,STI_EXP02/SMALL/nail.jpg,j
+S,H,N,De fotolijst stond op het bureau.,STI_EXP02/SMALL/pictureframe04.jpg,j
+S,H,N,Het scheermes stond in de beker.,STI_EXP02/SMALL/razor01.jpg,j
+S,H,N,De schroevendraaier werd gebruikt door de werknemer.,STI_EXP02/SMALL/screwdriver04b.jpg,j
+S,H,N,De zeeschelp werd opgepakt door de toerist.,STI_EXP02/SMALL/seashell01.jpg,j
+S,H,N,De schoen stond tegen de muur,STI_EXP02/SMALL/shoe.jpg,j
+S,H,N,De nietmachine zat in het etui.,STI_EXP02/SMALL/stapler03a.jpg,j
+S,H,N,De buffet tangen stonden in de pot.,STI_EXP02/SMALL/tongs01b.jpg,j
+S,H,N,De plastic fles stond op de koelkast,STI_EXP02/SMALL/waterbottle01b.jpg,j
+F,F,F,De badjas hing in de kledingkast,STI_EXP02/Filler/020-baignoire_bathtub.jpg,f
+F,F,F,De grote raffinaderij lag naast de weg,STI_EXP02/Filler/ironbarrel.jpg,f
+F,F,F,De film zat in de camera,STI_EXP02/Filler/025-barre_bar.jpg,f
+F,F,F,De capsule lag op de tafel,STI_EXP02/Filler/027-batterie_drum-set.jpg,f
+F,F,F,De zaag lag in de gereedschapskist,STI_EXP02/Filler/034-biberon_feeding-bottle.jpg,f
+F,F,F,De hamburger lag op het bord,STI_EXP02/Filler/035-bibliotheque_book-shelves.jpg,f
+F,F,F,De kaars stond op de eettafel,STI_EXP02/Filler/041-bonbon_candy.jpg,f
+F,F,F,De cassette zat in de recorder.,STI_EXP02/Filler/071-bateau_boat.jpg,f
+F,F,F,De appel lag op de tafel.,STI_EXP02/Filler/075-carte_playing-card.jpg,f
+F,F,F,De oorring lag naast de doos,STI_EXP02/Filler/078-cassette_cassette.jpg,f
+F,F,F,De tarwe was nog op het tarweveld.,STI_EXP02/Filler/089-chronometre_stop-watch.jpg,f
+F,F,F,De reddingsboei was op het dek,STI_EXP02/Filler/093-chapiteau_big-top.jpg,f
+F,F,F,De trein reed over het spoor,STI_EXP02/Filler/156-hot-dog_hot-dog.jpg,f
+F,F,F,Het slagschip voer de zee op.,STI_EXP02/Filler/166-klaxon_horn.jpg,f
+F,F,F,Het bed bevond zich in de kamer,STI_EXP02/Filler/240-pont_bridge.jpg,f
+F,F,F,De helikopter was geland op baan.,STI_EXP02/Filler/260-sapin_fir-tree.jpg,f
+F,F,F,De politieauto reed over de weg.,STI_EXP02/Filler/282-tractopelle_digger.jpg,f
+F,F,F,Het vlot bewoog naar de pier,STI_EXP02/Filler/293-usine_factory.jpg,f
+F,F,F,De koe werd gehouden op de veeboerderij.,STI_EXP02/Filler/294-ventilateur_fan.jpg,f
+F,F,F,De kerk stond op het plein,STI_EXP02/Filler/airhockeytable.jpg,f
+F,F,F,De hut stond in het bos,STI_EXP02/Filler/barn.jpg,f
+F,F,F,Het oorlogsschip voer naar de haven,STI_EXP02/Filler/boxtrailer.jpg,f
+F,F,F,De locomotief reed door de tunnel.,STI_EXP02/Filler/briefcaseclosed.jpg,f
+F,F,F,De kooi stond in de tuin,STI_EXP02/Filler/candle08b.jpg,f
+F,F,F,De tent stond op de grond,STI_EXP02/Filler/castle.jpg,f
+F,F,F,De SUV reed snel op de weg,STI_EXP02/Filler/castletower.jpg,f
+F,F,F,De ambulance reed op de weg,STI_EXP02/Filler/chair.jpg,f
+F,F,F,De droger was in de badkamer,STI_EXP02/Filler/church.jpg,f
+F,F,F,De truck stond in de fabriek,STI_EXP02/Filler/cooler01.jpg,f
+F,F,F,De loods stond naast het vliegtuig.,STI_EXP02/Filler/cow.jpg,f
+F,F,F,De vuurtoren stond bij de ingang van de haven.,STI_EXP02/Filler/submarine.jpg,f
+F,F,F,De tafellamp was in de winkel,STI_EXP02/Filler/dentalfloss03b.jpg,f
+F,F,F,Het kasteel stond op de heuvel.,STI_EXP02/Filler/desk02.jpg,f
+F,F,F,Het vrachtschip navigeerde naar de haven,STI_EXP02/Filler/dryingmachine02.jpg,f
+F,F,F,De motorfiets stond op de parkeerplaats,STI_EXP02/Filler/earring01.jpg,f
+F,F,F,De bal lag op de biljarttafel,STI_EXP02/Filler/faucet.jpg,f
+F,F,F,De rekenmachine lag op het bureau,STI_EXP02/Filler/ferry.jpg,f
+F,F,F,Het Zwitserse zakmes lag op de tafel,STI_EXP02/Filler/filmroll.jpg,f
+F,F,F,De wekker lag op het bed,STI_EXP02/Filler/flower.jpg,f
+F,F,F,De zaklamp lag in de koffer.,STI_EXP02/Filler/freighttruck.jpg,f
+F,F,F,De Rubiks kubus lag op de plank,STI_EXP02/Filler/microwave.jpg,f
+F,F,F,De monitor stond op het bureau.,STI_EXP02/Filler/fryingpan02a.jpg,f
+F,F,F,Het dartboard hing aan de muur,STI_EXP02/Filler/hangar.jpg,f
+F,F,F,Het kopje stond op de keukentafel,STI_EXP02/Filler/kiwi03.jpg,f
+F,F,F,De garnaal zat in het aquarium,STI_EXP02/Filler/laptopopen.jpg,f
+F,F,F,De ring lag in de ijzeren schotel.,STI_EXP02/Filler/lighthouse.jpg,f
+F,F,F,De telefoon stond op de bijzetttafel,STI_EXP02/Filler/Generic_High_Speed_Train_01.jpg,f
+F,F,F,De map stond op de plank,STI_EXP02/Filler/pillow.jpg,f
+F,F,F,De ballon was in de hand van het kind.,STI_EXP02/Filler/pill.jpg,f
+F,F,F,De lamp hing aan de muur.,STI_EXP02/Filler/ribbon04.jpg,f
+F,F,F,De basketbalkorf stond op het plein,STI_EXP02/Filler/rubikcube.jpg,f
+F,F,F,De boekenplank was in de kamer,STI_EXP02/Filler/sailboat.jpg,f
+F,F,F,De ventilator was bevestigd aan het plafond,STI_EXP02/Filler/scrubbingbrush05b.jpg,f
+F,F,F,De stoel was in het kantoor,STI_EXP02/Filler/solderingiron.jpg,f
+F,F,F,De printer stond aan de rechterkant van de tafel,STI_EXP02/Filler/spatula04.jpg,f
+F,F,F,De tafeltennistafel was in de kamer.,STI_EXP02/Filler/staple.jpg,f
+F,F,F,De hondenhuis stond naast de deur,STI_EXP02/Filler/strap.jpg,f
+F,F,F,De paraplu lag op het strand,STI_EXP02/Filler/tv.jpg,f
+F,F,F,De kool lag op de plank,STI_EXP02/Filler/umbrellaopen.jpg,f
+F,F,F,De hamer was op het bureau,STI_EXP02/Filler/uprightpiano01.jpg,f
+F,F,F,De speelgoeddinosaurus stond op de tafel.,STI_EXP02/Filler/usbkey.jpg,f
+F,F,F,De speelkaart was in de handen van de goochelaar,STI_EXP02/Filler/weight01.jpg,f
+F,F,F,De stopwatch was in de handen van de coach,STI_EXP02/Filler/wheel01.jpg,f
+F,F,F,De vuilnisbak bevond zich aan de kant van de weg,STI_EXP02/Filler/woodboard.jpg,f

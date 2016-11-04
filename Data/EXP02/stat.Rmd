@@ -1,0 +1,17 @@
+---
+title: "Pilot Analysis"
+author: "Sau-Chin Chen"
+date: "2016/10/26"
+output: html_document
+---
+```{r setup}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	include = FALSE
+)
+RAW_PATH = "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\EXP02\\MT\\1024_50subjects_pilot\\"
+
+subj_table <- read.csv(paste0(RAW_PATH,"subj_table.csv"))
+```
+
