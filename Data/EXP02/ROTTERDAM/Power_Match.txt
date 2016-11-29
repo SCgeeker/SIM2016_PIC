@@ -1,0 +1,30 @@
+F tests - ANOVA: Repeated measures, within factors
+Analysis:	Post hoc: Compute achieved power 
+Input:	Effect size f	=	0.2548779 (based on partial eta = 0.061)
+	α err prob	=	0.05
+	Total sample size	=	40
+	Number of groups	=	1
+	Number of measurements	=	2
+	Corr among rep measures	=	0.5
+	Nonsphericity correction ε	=	1
+Output:	Noncentrality parameter λ	=	10.3940390
+	Critical F	=	4.0912786
+	Numerator df	=	1.0000000
+	Denominator df	=	39.0000000
+	Power (1-β err prob)	=	0.8817291
+
+
+F tests - ANOVA: Repeated measures, within factors
+Analysis:	A priori: Compute required sample size (SPSS option)
+Input:	Effect size f(U)	=	0.5162498
+	α err prob	=	0.05
+	Power (1-β err prob)	=	0.8817291
+	Number of groups	=	1
+	Number of measurements	=	2
+	Nonsphericity correction ε	=	1
+Output:	Noncentrality parameter λ	=	10.3940404
+	Critical F	=	4.0912786
+	Numerator df	=	1.0000000
+	Denominator df	=	39.0000000
+	Total sample size	=	40
+	Actual power	=	0.8817291

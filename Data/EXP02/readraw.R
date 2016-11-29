@@ -60,6 +60,7 @@ raw_NL <- list.files(list.dirs(To_folder)[2], pattern = "*.csv", recursive = TRU
 
 # Take the columns for pre-processing
 V <- c(
+        "logfile",
         "List",
         "count_Trial",
         "Size",  # within
@@ -79,15 +80,16 @@ for(i in seq(raw_NL)){
         data_NL <- rbind(
                 data_NL,
                 cbind(
-                        ID = rep(gsub("*.csv$", "",raw_NL[i]), 128), 
                         read.csv(paste0(To_folder,"\\NL_pilot\\",raw_NL[i]), encoding = "utf-8")[,V]
                         
                 )
         )
 }
 
+data_NL = data.frame(matrix(unlist(stri_split_fixed(data_NL$logfile, "-")), ncol = 4, byrow = TRUE,dimnames = list(seq(1,dim(data_NL)[1]),c("Lang","Gender","Age","ID"))), data_NL[,-1])
+
 # save filtered raw file to RAW folder
-write.csv(data_NL, file=paste0(To_folder,"\\","NL_pilot01.csv"))
+write.csv(data_NL, file=paste0(To_folder,"\\","NL_pilot_raw.csv"))
 # remove the temporary raw files
 file.remove(paste0(To_folder,"\\NL_pilot\\",raw_NL))
 rm(i,V,From_folder, To_folder,raw_TW,raw_NL)
