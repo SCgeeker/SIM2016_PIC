@@ -1,0 +1,78 @@
+# Correlations of every set
+## C Large Default
+cor(
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'L' & RT_DF$Pic == 'D' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'L' & RT_DF$Pic == 'D' & RT_DF$Match == 'N',]$RT
+)
+> 0.84
+## C Large Rotated
+cor(
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'L' & RT_DF$Pic == 'R' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'L' & RT_DF$Pic == 'R' & RT_DF$Match == 'N',]$RT
+)
+> 0.51
+## C Small Default
+cor(
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'S' & RT_DF$Pic == 'D' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'S' & RT_DF$Pic == 'D' & RT_DF$Match == 'N',]$RT
+)
+> 0.60
+## C Small Rotated
+cor(
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'S' & RT_DF$Pic == 'R' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'C' & RT_DF$Size == 'S' & RT_DF$Pic == 'R' & RT_DF$Match == 'N',]$RT
+)
+> 0.53
+## E Large Default
+cor(
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'L' & RT_DF$Pic == 'D' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'L' & RT_DF$Pic == 'D' & RT_DF$Match == 'N',]$RT
+)
+> 0.74
+## E Large Rotated
+cor(
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'L' & RT_DF$Pic == 'R' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'L' & RT_DF$Pic == 'R' & RT_DF$Match == 'N',]$RT
+)
+> 0.82
+## E Small Default
+cor(
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'S' & RT_DF$Pic == 'D' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'S' & RT_DF$Pic == 'D' & RT_DF$Match == 'N',]$RT
+)
+> 0.84
+## E Small Rotated
+cor(
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'S' & RT_DF$Pic == 'R' & RT_DF$Match == 'Y',]$RT,
+        RT_DF[RT_DF$Lang == 'E' & RT_DF$Size == 'S' & RT_DF$Pic == 'R' & RT_DF$Match == 'N',]$RT
+)
+> 0.73
+
+# Cohen's d of every set
+# Use WISEHEART Melody (2013). Effect size calculator. 
+# http://www.cognitiveflexibility.org/effectsize/
+## C Large Default
+> 0.032
+## C Large Rotated
+> -0.407
+## C Small Default
+> -0.541
+## C Small Rotated
+> -0.067
+## E Large Default
+> -0.363
+## E Large Rotated
+> -0.842
+## E Small Default
+> 0.650
+## E Small Rotated
+> -0.544
+
+# Estimate overall effect size in use of ESCI
+# Assume the match effects are fixed effect
+# Overall effect size of Taiwan data
+> -0.223
+# Overall effect size of EUR data
+> -0.258
+# Overall effect size of Merged data
+> -0.242
