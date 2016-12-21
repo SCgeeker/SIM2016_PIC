@@ -1,8 +1,9 @@
 ---
 title: 'Size and Orientation: Match effects across three langauges'
 author: "Sau-Chin Chen"
-date: "`r format(Sys.time(), '%Y-%m-%d')`"
-output: html_document
+date: '`r format(Sys.time(), "%Y-%m-%d")`'
+output:
+  html_document: default
 ---
 ```{r import_data, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 
