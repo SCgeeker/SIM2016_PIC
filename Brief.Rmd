@@ -1,0 +1,113 @@
+---
+title: 'Size and Orientation: Match effects across three langauges'
+author: "Sau-Chin Chen"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output: html_document
+---
+```{r import_data, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
+
+## Import the raw data
+From_folder1 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\Dutch_Chinese_LAB\\"
+From_folder2 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\English_MTurk\\"
+To_folder <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\"
+rawdata_files1 <- list.files(path = From_folder1, pattern = "_rawdata", recursive = TRUE, include.dirs = TRUE)
+
+rawdata_files2 <- list.files(path = From_folder2, pattern = "_rawdata", recursive = TRUE, include.dirs = TRUE)
+
+# Import multiple-bytes string in English system
+Sys.setlocale("LC_ALL","English") 
+
+# Import cleaned raw data of verification task
+data_TW <- read.csv(file = paste0(From_folder1,rawdata_files1[1]), na.strings = NA)
+data_NL <- read.csv(file = paste0(From_folder1,rawdata_files1[2]), na.strings = NA)
+data_US <- read.csv(file = paste0(From_folder2,rawdata_files2), na.strings = NA)
+data_US$Lang = "E"
+
+## Import the analytic data
+DATA_PATH = "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\"
+
+# import analytical data
+DATA_2IV <- read.csv(paste0(DATA_PATH,"2IV_analytic_data.csv"))
+DATA_3IV <- read.csv(paste0(DATA_PATH,"3IV_analytic_data.csv"))
+
+# Make ID as factor
+DATA_2IV$ID <- as.factor(DATA_2IV$ID)
+DATA_3IV$ID <- as.factor(DATA_3IV$ID)
+# Rename labels in List
+DATA_2IV$List = gsub("SP_|D_|C_|0|.csv","",DATA_2IV$List)
+DATA_3IV$List = gsub("SP_|D_|C_|0|.csv","",DATA_3IV$List)
+DATA_2IV$List <- as.factor(DATA_2IV$List)
+DATA_3IV$List <- as.factor(DATA_3IV$List)
+# Rename labels in Lang 
+DATA_2IV$Lang = gsub("E","English",DATA_2IV$Lang)
+DATA_2IV$Lang = gsub("C","Chinese",DATA_2IV$Lang)
+DATA_2IV$Lang = gsub("D","Dutch",DATA_2IV$Lang)
+DATA_3IV$Lang = gsub("E","English",DATA_3IV$Lang)
+DATA_3IV$Lang = gsub("C","Chinese",DATA_3IV$Lang)
+DATA_3IV$Lang = gsub("D","Dutch",DATA_3IV$Lang)
+DATA_2IV$Lang <- as.factor(DATA_2IV$Lang)
+DATA_3IV$Lang <- as.factor(DATA_3IV$Lang)
+# Rename labels in Size
+DATA_2IV$Size = gsub("L","Large",DATA_2IV$Size)
+DATA_2IV$Size = gsub("S","Small",DATA_2IV$Size)
+DATA_3IV$Size = gsub("L","Large",DATA_3IV$Size)
+DATA_3IV$Size = gsub("S","Small",DATA_3IV$Size)
+DATA_2IV$Size <- as.factor(DATA_2IV$Size)
+DATA_3IV$Size <- as.factor(DATA_3IV$Size)
+```
+
+#### Authors
+Sau-Chin Chen, Bjorn de Koning, Rolf Zwaan, and Yu-Han Luo  
+  
+### Hypothesis
+In our pre-registered proposal: "Match effects of object orientation in the sentence-picture verification task are consistently smaller than object shape, color, and size. We hypothesize that this may be due to the fact that the orientation objects are small and manipulable.  This study asks the questions if object size constrains object orientation effects, such that effects for smaller, manipulable, items are smaller than for larger, nonmanipulable objects. A pilot study yielded larger match effects for the large objects than for the small objects both in English and in Dutch speakers. In addition, a Bayesian analysis indicated that the stronger match effect occurred for the horizontal objects of English participants and the stronger match effect happened to the vertical objects of Dutch participants. The pre-registered experiment will update the design of sentence-picture verification based on our pilots and test the hypotheses in advance. A third language, Chinese, will be included to test the stronger match effect for the large objects than the small objects and to confirm the inconsistent match effects across horizontal and vertical objects. Alternative recognition trials will be triggered after each eight trials. These recognition trials are used to make sure the participants have paid their attentions on the probe sentences. Meta-analyses will be performed on the data for the three experiments. We expect that effects generalize across languages and therefore that language will not be a signficant moderator of the observed effects."
+
+### Method
+#### Participants
+The participants came from three langauge backgrounds: English(the United States), Dutch(EUR students), Chinese(Taiwan undergraduates). 150 English participants were the US residents who were recruited from Amazon Mechanical Turk. Every English participant finished the experiment in Qualtrics platform and obtained US\$ 1.5 dollars as the reward. Total 128 valid participants' data (```r sum(data_US$Gender == "Female")/128``` females; averaged age is ```r round(mean(unique(data_US$Age)), 2)``` and the range is ```r paste(min(unique(data_US$Age)),"-",max(unique(data_US$Age)))```) are collected after excluded the participants who met the accidental stop and considered the equal numbers between the stimuli lists.  
+Dutch and Chinese participants finished the experiment in the laboratories of EUR EBL and NCKU LACD Lab and obtained the course credits or US\$ 2-3 dollars as the reward. So far, ```r length(unique(data_NL$ID))``` Dutch students and ```r length(unique(data_TW$ID))``` joined this study. 
+
+#### Stimuli and Design
+64 sets of critical stimuli are decided by the language backgrounds (English, Dutch, and Chinese), the object size (Large, Small), the object orientation (Horizontal, Verticl), and the matching the probe sentence and target picture(match, mismatch). Half of the sets represent the large objects, and the other half represent the small objects. In each set two pictures show the target object in horizontal and in vertical respectively. The format of target pictures are the grey scaled jpeg files in 240 X 240 pixels. Each picture matches one of the probe sentence whereas mismatches the other probe sentence. Every probe sentence are written in English, Dutch, and Chinese for the participants in the respective langauge backgrounds. The objects are the initial nouns of the probe sentences. We used this sentence strucure according to our earlier pilot study.  
+
+##### Examples of large objects
+||Matched Picture|Mismatched Picture|
+|---|---|---|
+|The canoe was gliding across the river.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_H.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_V.jpg)|
+|The canoe was dropping from the top of the water fall.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_V.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_H.jpg)|
+
+##### Examples of small objects
+||Matched Picture|Mismatched Picture|
+|---|---|---|
+|The hat was on the model's head.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat_r.jpg)|
+|The hat hung on the wall.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat_r.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat.jpg)|
+
+64 filler pairs of sentences and pictures are decided for the demand of verification task. In each pair the picture are irrelavent to the sentence. The sentence strucure and the picture format are identical to the critical stimuli.  
+  
+#### Procedure
+The experimental session began after 6 practice trials. Each practice trial is the sentence-picture verification task as identical to the settings of Stanfield and Zwaan(2001) and Zwaan and Pechers (2012). Because the limitations of experimental software, the English participants finished the 6 practices trials with feedback, but the Dutch and Chinese participants finished the pratice session till they correctly answered all the 6 practice trials. 
+  
+The experimental session had 128 trials of sentence-picture verifiaction task and 30 to 32 trials of the alternative task. For the English participants, the alternative task is the comprehension task follows the settings of Zwaan and Pechers (2012). 32 multiple choices present after 32 fillers. These trials require the participants answer the questions about the probe sentences they just read. For the Dutch and Chinese participants, the alternative task is recognition task as like Stanfield and Zwaan (2001). 30 yes/no problems present randomly between the 128 experimental trials. These problems require the participant recognize if the sentence just shown in the recent three trials or not.  
+
+### Results  
+#### Overall analysis
+```{r plot_3IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE, dependson='import_data'}
+require(ggplot2)
+# Plot match effects across langauges, object size,  and object orientation
+ggplot(DATA_3IV,aes(x=paste(Size,Orientation),y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the specific object orientation across object size and langauges", x = "Object size and orientation") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang )
+```
+```{r plot_2IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE}
+require(ggplot2)
+# Plot match effects across langauges and object size
+ggplot(DATA_2IV,aes(x= Size,y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the merged object orientations across object size and langauges", x = "Object size") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang)
+```
+
+#### Confirmative analysis
+
+
+#### English/MTurk
+
+#### Taiwan/Lab
+
+### Discussion
+Many participants hardly recognized "cornhusk.jpg". 

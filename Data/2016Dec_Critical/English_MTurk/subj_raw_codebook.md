@@ -1,10 +1,15 @@
-`ID`: Participant's ID by imported sequence  
+`Lang`: Participant's firs language  
+`Gender`: Participant's gender  
+`Age`: Participant's age  
+`ID`: Participant's randomized ID  
+`List`: Sitmulus Lists  
+`Trial_Seq`: Trial Sequence in Experiment  
 `Size`: Object Size in Target Picture  
 `Orien`: Object Orientation in Target Picture  
 `Match`: Matching of Probe Sentence and Target Picture  
-`BlockID`: Sitmulus Lists  
-`TrialNr`: Trial Sequence in Experiment  
-`Sent_RT`: Average Sentence Reading Time in Verification Task  
-`RT`: Raw Reaction Time  
-`ACC`: Raw Response Accuracy in Verification Task; 1 = correct; 0 = incorrect  
-`M_ACC`: Raw Response Accuracy in Recognition Task; 1 = correct; 0 = incorrect  
+`Item_index`: index to access the sentence and picture  
+`sentence_read_time`: Raw Sentence Reading Time in Verification Task  
+`Target_response_time`: Raw Reaction Time in Verification Task 
+`correct`: Raw Response Accuracy in Verification Task; 1 = correct; 0 = incorrect  
+`Comprehension_correct`: Raw Response Accuracy in Recognition Task; 1 = correct; 0 = incorrect  
+`datetime`: Date and time this participant finished the experiment  
