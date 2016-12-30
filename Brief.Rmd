@@ -1,9 +1,8 @@
 ---
 title: 'Size and Orientation: Match effects across three langauges'
 author: "Sau-Chin Chen"
-date: '`r format(Sys.time(), "%Y-%m-%d")`'
-output:
-  html_document: default
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output: html_document
 ---
 ```{r import_data, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 
@@ -66,7 +65,7 @@ In our pre-registered proposal: "Match effects of object orientation in the sent
 ### Method
 #### Participants
 The participants came from three langauge backgrounds: English(the United States), Dutch(EUR students), Chinese(Taiwan undergraduates). 150 English participants were the US residents who were recruited from Amazon Mechanical Turk. Every English participant finished the experiment in Qualtrics platform and obtained US\$ 1.5 dollars as the reward. Total 128 valid participants' data (```r sum(data_US$Gender == "Female")/128``` females; averaged age is ```r round(mean(unique(data_US$Age)), 2)``` and the range is ```r paste(min(unique(data_US$Age)),"-",max(unique(data_US$Age)))```) are collected after excluded the participants who met the accidental stop and considered the equal numbers between the stimuli lists.  
-Dutch and Chinese participants finished the experiment in the laboratories of EUR EBL and NCKU LACD Lab and obtained the course credits or US\$ 2-3 dollars as the reward. So far, ```r length(unique(data_NL$ID))``` Dutch students and ```r length(unique(data_TW$ID))``` joined this study. 
+The undergraudates in EUR and NCKU participated in the Dutch and Chinese versions in the laboratories of EUR EBL and NCKU LACD Lab. They obtained the course credits or US\$ 2-3 dollars as the reward. ```r length(unique(data_TW$ID))``` Taiwan students (```r sum(data_TW$Gender == "F")/128``` females; averaged age is ```r round(mean(unique(data_TW$Age)), 2)``` and the range is ```r paste(min(unique(data_TW$Age)),"-",max(unique(data_TW$Age)))```) joined the Chinese version. So far, ```r length(unique(data_NL$ID))``` Dutch students (```r sum(data_NL$Gender == "f")/128``` females; averaged age is ```r round(mean(unique(data_NL$Age)), 2)``` and the range is ```r paste(min(unique(data_NL$Age)),"-",max(unique(data_NL$Age)))```) joined the Dutch version.  
 
 #### Stimuli and Design
 64 sets of critical stimuli are decided by the language backgrounds (English, Dutch, and Chinese), the object size (Large, Small), the object orientation (Horizontal, Verticl), and the matching the probe sentence and target picture(match, mismatch). Half of the sets represent the large objects, and the other half represent the small objects. In each set two pictures show the target object in horizontal and in vertical respectively. The format of target pictures are the grey scaled jpeg files in 240 X 240 pixels. Each picture matches one of the probe sentence whereas mismatches the other probe sentence. Every probe sentence are written in English, Dutch, and Chinese for the participants in the respective langauge backgrounds. The objects are the initial nouns of the probe sentences. We used this sentence strucure according to our earlier pilot study.  
@@ -91,7 +90,7 @@ The experimental session began after 6 practice trials. Each practice trial is t
 The experimental session had 128 trials of sentence-picture verifiaction task and 30 to 32 trials of the alternative task. For the English participants, the alternative task is the comprehension task follows the settings of Zwaan and Pechers (2012). 32 multiple choices present after 32 fillers. These trials require the participants answer the questions about the probe sentences they just read. For the Dutch and Chinese participants, the alternative task is recognition task as like Stanfield and Zwaan (2001). 30 yes/no problems present randomly between the 128 experimental trials. These problems require the participant recognize if the sentence just shown in the recent three trials or not.  
 
 ### Results  
-#### Overall analysis
+#### Descriptive Analysis
 ```{r plot_3IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE, dependson='import_data'}
 require(ggplot2)
 # Plot match effects across langauges, object size,  and object orientation
@@ -103,12 +102,102 @@ require(ggplot2)
 ggplot(DATA_2IV,aes(x= Size,y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the merged object orientations across object size and langauges", x = "Object size") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang)
 ```
 
-#### Confirmative analysis
+#### Primay analysis: ANOVA
+In the pre-registered proposal:"A 2 (size) X 2 (orientation) X 2 (match) X 3 (language) mixed ANOVA will be conducted on the participants' median response times. This ANOVA will indicate the match effects interacting with object size, orientation, and languages."
 
+```{r registered_ANOVA_3IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE,, results="asis"}
+require(xtable)
+RT_aov_3IV <- xtable(aov( RT ~ Lang*Size*Orientation*Match + Error(ID/(Size*Orientation*Match)), data =DATA_3IV), digits = 2)[1:23,]
+print(RT_aov_3IV, type = "html")
+```
 
-#### English/MTurk
+To be discussed  
 
-#### Taiwan/Lab
+```{r registered_ANOVA_2IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
+require(xtable)
+RT_aov_2IV <- xtable(aov( RT ~ Lang*Size*Match + Error(ID/(Size*Match)), data =DATA_2IV), digits = 2)[1:11,]
+print(RT_aov_2IV, type = "html")
+```
+
+To be discussed  
+  
+#### Primay analysis: Meta-analysis
+In the pre-registered proposal: "A meta-analytic effect size of the match effects across languages, size, and orientation will be summarized. This meta-analysis will confirm that the match effects could shift with the object size and orientations but have a stable pattern across languages."  
+```{r regisgered_meta, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, fig.align="center", results="asis"}
+require(metafor)
+## Create data set for escalc()
+dat_3IV = data.frame(
+condition = unique(with(data = DATA_3IV, paste(Lang, Size, Orientation))),
+m_match = as.vector( with(data = subset(DATA_3IV, Match == "Y"), tapply(RT, paste(Lang,Size,Orientation),mean) ) ),
+m_mismatch = as.vector( with(data = subset(DATA_3IV, Match == "N"), tapply(RT, paste(Lang,Size,Orientation),mean) ) ),
+sd_match = as.vector( with(data = subset(DATA_3IV, Match == "Y"), tapply(RT, paste(Lang,Size,Orientation),sd) ) ),
+sd_mismatch = as.vector( with(data = subset(DATA_3IV, Match == "N"), tapply(RT, paste(Lang,Size,Orientation),sd) ) ),
+ni = as.vector( with(data = subset(DATA_3IV, Match == "Y"), tapply(ID, paste(Lang,Size,Orientation), length) ) ),
+ri = rep(.5,12)
+)
+## Calculate effect size of 12 conditions
+dat_3IV_es <- escalc(measure = "SMCR", m1i = m_mismatch, m2i = m_match, sd1i = sd_mismatch, sd2i = sd_match, ni = ni, ri = ri, slab = condition, data = dat_3IV)
+## Do the meta analysis on 12 conditions, in random effect model
+dat_3IV_meta <- rma.uni(yi, vi, data = dat_3IV_es, slab = condition, method = "REML", digits = 2)
+## Draw the main forest plot for all conditions and overall meta-analytical effect
+forest(dat_3IV_meta, atransf = exp, ilab = dat_3IV_es$condition, ilab.xpos = -3, cex = .65, ylim = c(-1, 19), order = c(1,2,5,6,9,10,3,4,7,8,11,12), rows = c(10:15,2:7), xlab = "Standardized Differences of Reaction Time", mlab = "RE model for all conditions")
+## Do the meta analysis on the large objects, in random effect model
+dat_3IV_large_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(1,2,5,6,9,10),], slab = condition, method = "REML", digits = 2)
+## Do the meta analysis on the small objects, in random effect model
+dat_3IV_small_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(3,4,7,8,11,12),], slab = condition, method = "REML", digits = 2)
+## Draw the meta-analytical effect of large objects on the main forest plot
+addpoly(dat_3IV_large_meta, row = 9, cex = .65, atransf = exp, mlab = "RE model for large objects")
+## Draw the meta-analytical effect of small objects on the main forest plot
+addpoly(dat_3IV_small_meta, row = 1, cex = .65, atransf = exp, mlab = "RE model for small objects")
+```
+
+To be discussed  
+  
+#### Secondary analysis: Bayes Factors
+In the pre-registered proposal: "We calculate Bayes factor of each match effect as the evidence resulted from the given object size, orientation, and the participants' native language."  
+```{r registered_Bayes, echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, results="asia"}
+## Compute Bayes Factor
+require(BayesFactor)
+require(dplyr)
+## Compute Bayes Factor of match effects
+for(i in with(data = DATA_3IV, unique(paste(Lang,Size,Orientation))) ){
+        print(i)
+        plot( ttestBF( unlist( select( filter(DATA_3IV, Lang == unlist(strsplit(i, " "))[1], Size == unlist(strsplit(i, " "))[2], Orientation == unlist(strsplit(i, " "))[3], Match == "N"), RT) ), unlist(select( filter(DATA_3IV, Lang == unlist(strsplit(i, " "))[1], Size == unlist(strsplit(i, " "))[2], Orientation == unlist(strsplit(i, " "))[3], Match == "Y"), RT) ), paired = TRUE, nullInterval=c(0, Inf) ) )  
+}
+
+#for(i in with(data = DATA_2IV, unique(paste(Lang,Size))) ){
+#        print(i)
+#        plot( ttestBF( unlist( select( filter(DATA_2IV, Lang == unlist(strsplit(i, " "))[1]
+#, Size == unlist(strsplit(i, " "))[2]
+#, Match == "N"), RT) ) , unlist(select( filter(DATA_2IV, Lang == unlist(strsplit(i, " "))[1]
+#, Size == unlist(strsplit(i, " "))[2]
+#, Match == "Y"), RT) ), paired = TRUE, nullInterval=c(0, Inf) ) )  
+#}
+```
+
+To be discussed  
+  
+#### Secondary analysis: Changes among stimuli lists
+In the pre-registered proposal: "A participant will be assigned one of the four stimulus lists due to the counter-balanced within-participant conditions. A mixed ANOVA including the list as the independent variable will confirm its insignificant affection on the participants' responses."  
+```{r registered_Lists, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
+require(xtable)
+RT_aov_3IV_list <- with(data = DATA_3IV,
+                 xtable(aov(RT ~ Lang*List*Size*Orientation*Match + Error(ID/(Size*Orientation*Match) ) ))   )[c(2,4,7:9,12:14,17:19,22:24,27:29,32:34,37:39),]
+print(RT_aov_3IV_list, type = "html")
+```
+
+To be discussed.  
+
+#### Secondary analysis: Comprehension and Recognition task
+In the pre-registered proposal: "The average accuracies of the recognition trails and the comprehension task will be summarized by the participant. The average accuracy of every language group is compared to 50% which assume the participant had not read the probe sentence carefully. In the laboratory experiment, thirty recognition trials randomly present between the experimental trails. In the internet experiment, 32 comprehension trials present after the filler items."
+
+```{r registered_task, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+require(xtable)
+TEST_Results <- unlist( with(filter(DATA_3IV, Size == "Large", Orientation == "H", Match == "Y"), tapply(MEM_ACC, Lang, t.test, mu=50, alternative = "greater")))
+TEST_Table <- xtable(matrix(as.numeric(TEST_Results[grep("statistic.t|df|p.value",names(TEST_Results))]),nc=3, byrow = TRUE, dimnames = list(c("Chinese","Dutch","English"),c("t","df","p value"))), digits=2)
+print(TEST_Table, type="html")
+```     
+
 
 ### Discussion
-Many participants hardly recognized "cornhusk.jpg". 
+**TBA**
