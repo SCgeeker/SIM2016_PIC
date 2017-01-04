@@ -7,9 +7,8 @@ output: html_document
 ```{r import_data, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 
 ## Import the raw data
-From_folder1 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\Dutch_Chinese_LAB\\"
-From_folder2 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\English_MTurk\\"
-To_folder <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\"
+From_folder1 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\Data\\2016Dec_Critical\\Dutch_Chinese_LAB\\"
+From_folder2 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\Data\\2016Dec_Critical\\English_MTurk\\"
 rawdata_files1 <- list.files(path = From_folder1, pattern = "_rawdata", recursive = TRUE, include.dirs = TRUE)
 
 rawdata_files2 <- list.files(path = From_folder2, pattern = "_rawdata", recursive = TRUE, include.dirs = TRUE)
@@ -24,7 +23,7 @@ data_US <- read.csv(file = paste0(From_folder2,rawdata_files2), na.strings = NA)
 data_US$Lang = "E"
 
 ## Import the analytic data
-DATA_PATH = "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\Data\\2016Dec_Critical\\"
+DATA_PATH = "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\Data\\2016Dec_Critical\\"
 
 # import analytical data
 DATA_2IV <- read.csv(paste0(DATA_PATH,"2IV_analytic_data.csv"))
@@ -73,14 +72,14 @@ The undergraudates in EUR and NCKU participated in the Dutch and Chinese version
 ##### Examples of large objects
 ||Matched Picture|Mismatched Picture|
 |---|---|---|
-|The canoe was gliding across the river.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_H.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_V.jpg)|
-|The canoe was dropping from the top of the water fall.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_V.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\LARGE\\canoe_H.jpg)|
+|The canoe was gliding across the river.|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\LARGE\\canoe_H.jpg" width="100">|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\LARGE\\canoe_V.jpg" width="100">|
+|The canoe was dropping from the top of the water fall.|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\LARGE\\canoe_V.jpg" width="100">|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\LARGE\\canoe_H.jpg" width="100">|
 
 ##### Examples of small objects
 ||Matched Picture|Mismatched Picture|
 |---|---|---|
-|The hat was on the model's head.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat_r.jpg)|
-|The hat hung on the wall.|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat_r.jpg)|![](D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\STI\\SMALL\\hat.jpg)|
+|The hat was on the model's head.|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\SMALL\\hat.jpg" width="100">|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\SMALL\\hat_r.jpg" width="100">|
+|The hat hung on the wall.|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\SMALL\\hat_r.jpg" width="100">|<img src="D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\STI\\SMALL\\hat.jpg" width="100">|
 
 64 filler pairs of sentences and pictures are decided for the demand of verification task. In each pair the picture are irrelavent to the sentence. The sentence strucure and the picture format are identical to the critical stimuli.  
   
@@ -94,36 +93,39 @@ The experimental session had 128 trials of sentence-picture verifiaction task an
 ```{r plot_3IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE, dependson='import_data'}
 require(ggplot2)
 # Plot match effects across langauges, object size,  and object orientation
-ggplot(DATA_3IV,aes(x=paste(Size,Orientation),y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the specific object orientation across object size and langauges", x = "Object size and orientation") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang )
+ggplot(DATA_3IV,aes(x=paste(Size,Orientation),y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the specific object orientation across object size and langauges", x = "Object size and orientation", y = "Median RTs (in milliseconds)") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang )
 ```
+
 ```{r plot_2IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE}
 require(ggplot2)
 # Plot match effects across langauges and object size
-ggplot(DATA_2IV,aes(x= Size,y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the merged object orientations across object size and langauges", x = "Object size") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang)
+ggplot(DATA_2IV,aes(x= Size,y=RT,fill=Match)) + stat_summary(fun.y=median,position=position_dodge(),geom="bar") + coord_cartesian( ylim = c(550, 750) ) + scale_fill_grey(start = 0, end = 0.9) + labs(title = "Match effects of the merged object orientations across object size and langauges", x = "Object size", y = "Median RTs (in milliseconds)") + theme(panel.background = element_blank(), panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(), panel.grid.minor.y = element_blank(), panel.ontop = TRUE)+facet_wrap(~ Lang)
 ```
+
+The laboratory studies showed the stronger match effects than the internet study. Although the Dutch data are being collected, the patterns of match effects are similar between Dutch and Chinese.
 
 #### Primay analysis: ANOVA
 In the pre-registered proposal:"A 2 (size) X 2 (orientation) X 2 (match) X 3 (language) mixed ANOVA will be conducted on the participants' median response times. This ANOVA will indicate the match effects interacting with object size, orientation, and languages."
 
-```{r registered_ANOVA_3IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE,, results="asis"}
+```{r registered_ANOVA_4IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE,, results="asis"}
 require(xtable)
 RT_aov_3IV <- xtable(aov( RT ~ Lang*Size*Orientation*Match + Error(ID/(Size*Orientation*Match)), data =DATA_3IV), digits = 2)[1:23,]
 print(RT_aov_3IV, type = "html")
 ```
 
-To be discussed  
+In addition to the main effect of object size, F(1,189) = 255.95, MSE = 6015.23, p < .01, the main effects of the other three independent variables do not reach the statistical significant level (p > .05). Between the two-way interactions, only the interaction of object size and match effects was beyond the statistical significant level, F(1,189) = 7.70, MSE = 4970.03, p = .01. Between the three-way interactions, only the interaction of object size, orientation, and match effects was beyond the statistical significant level, F(1,189) = 4.37, MSE = 5764.69, p = .04. Participants' response times obviously increased with the object size, and the patterns of match effects were different between the object size. The object orientation moderated the match effects between the object size. There are no significant differences of participants' responses among the three languages.    
 
-```{r registered_ANOVA_2IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
+```{r registered_ANOVA_3IV, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
 require(xtable)
 RT_aov_2IV <- xtable(aov( RT ~ Lang*Size*Match + Error(ID/(Size*Match)), data =DATA_2IV), digits = 2)[1:11,]
 print(RT_aov_2IV, type = "html")
 ```
 
-To be discussed  
+After the object orientations merged, the statistically significant interaction of object size and match effect indicated the different patterns between the large and small objects, F(1,189) = 11.16, MSE = 2703.67, p < .01.  
   
 #### Primay analysis: Meta-analysis
 In the pre-registered proposal: "A meta-analytic effect size of the match effects across languages, size, and orientation will be summarized. This meta-analysis will confirm that the match effects could shift with the object size and orientations but have a stable pattern across languages."  
-```{r regisgered_meta, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, fig.align="center", results="asis"}
+```{r regisgered_meta, echo=TRUE, fig.align="center", message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
 require(metafor)
 ## Create data set for escalc()
 dat_3IV = data.frame(
@@ -140,31 +142,50 @@ dat_3IV_es <- escalc(measure = "SMCR", m1i = m_mismatch, m2i = m_match, sd1i = s
 ## Do the meta analysis on 12 conditions, in random effect model
 dat_3IV_meta <- rma.uni(yi, vi, data = dat_3IV_es, slab = condition, method = "REML", digits = 2)
 ## Draw the main forest plot for all conditions and overall meta-analytical effect
-forest(dat_3IV_meta, atransf = exp, ilab = dat_3IV_es$condition, ilab.xpos = -3, cex = .65, ylim = c(-1, 19), order = c(1,2,5,6,9,10,3,4,7,8,11,12), rows = c(10:15,2:7), xlab = "Standardized Differences of Reaction Time", mlab = "RE model for all conditions")
+forest(dat_3IV_meta, atransf = exp, ilab = dat_3IV_es$condition, ilab.xpos = -3, cex = .65, ylim = c(-1, 21), order = c(1,5,9,2,6,10,3,7,11,4,8,12), rows = c(12:14,16:18,3:5,7:9), xlab = "Standardized Differences of Reaction Time", mlab = "RE model for all conditions")
+## Do the meta analysis on the large and vertical objects, in random effect model
+dat_3IV_large_V_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(2,6,10),], slab = condition, method = "REML", digits = 2)
+## Do the meta analysis on the large and horizontal objects, in random effect model
+dat_3IV_large_H_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(1,5,9),], slab = condition, method = "REML", digits = 2)
 ## Do the meta analysis on the large objects, in random effect model
 dat_3IV_large_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(1,2,5,6,9,10),], slab = condition, method = "REML", digits = 2)
+## Do the meta analysis on the small vertical objects, in random effect model
+dat_3IV_small_V_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(4,8,12),], slab = condition, method = "REML", digits = 2)
+## Do the meta analysis on the small horizontal objects, in random effect model
+dat_3IV_small_H_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(3,7,11),], slab = condition, method = "REML", digits = 2)
 ## Do the meta analysis on the small objects, in random effect model
 dat_3IV_small_meta <- rma.uni(yi, vi, data = dat_3IV_es[c(3,4,7,8,11,12),], slab = condition, method = "REML", digits = 2)
 ## Draw the meta-analytical effect of large objects on the main forest plot
-addpoly(dat_3IV_large_meta, row = 9, cex = .65, atransf = exp, mlab = "RE model for large objects")
+addpoly(dat_3IV_large_V_meta, row = 15, cex = .65, atransf = exp, mlab = "RE model for large and vertical objects")
+addpoly(dat_3IV_large_H_meta, row = 11, cex = .65, atransf = exp, mlab = "RE model for large and horizontal objects")
+addpoly(dat_3IV_large_meta, row = 10, cex = .65, atransf = exp, mlab = "RE model for large objects")
 ## Draw the meta-analytical effect of small objects on the main forest plot
+addpoly(dat_3IV_small_V_meta, row = 6, cex = .65, atransf = exp, mlab = "RE model for small and vertical objects")
+addpoly(dat_3IV_small_H_meta, row = 2, cex = .65, atransf = exp, mlab = "RE model for small and horizontal objects")
 addpoly(dat_3IV_small_meta, row = 1, cex = .65, atransf = exp, mlab = "RE model for small objects")
 ```
 
-To be discussed  
+The standard effect size of match effects were estimated in the function of languages, object size, and object orientation. The meta-analytic effects were estimated in the convergence of the orientation and the size. The  match advantage of the large and vertical objects was indicated by the meta-analytic effect. These objects further contributed to the match advantage of large objects. The small objects shows the null effect but tends to the match disadvantage. After the Dtuch data accumulated beyond 50 participants, the match effect of small objects will be confirmed.    
+
+*Question:* How to report the standard effect size in the paper?    
   
 #### Secondary analysis: Bayes Factors
 In the pre-registered proposal: "We calculate Bayes factor of each match effect as the evidence resulted from the given object size, orientation, and the participants' native language."  
-```{r registered_Bayes, echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, results="asia"}
+```{r registered_Bayes, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", results="asis"}
 ## Compute Bayes Factor
 require(BayesFactor)
 require(dplyr)
+require(xtable)
 ## Compute Bayes Factor of match effects
-for(i in with(data = DATA_3IV, unique(paste(Lang,Size,Orientation))) ){
-        print(i)
-        plot( ttestBF( unlist( select( filter(DATA_3IV, Lang == unlist(strsplit(i, " "))[1], Size == unlist(strsplit(i, " "))[2], Orientation == unlist(strsplit(i, " "))[3], Match == "N"), RT) ), unlist(select( filter(DATA_3IV, Lang == unlist(strsplit(i, " "))[1], Size == unlist(strsplit(i, " "))[2], Orientation == unlist(strsplit(i, " "))[3], Match == "Y"), RT) ), paired = TRUE, nullInterval=c(0, Inf) ) )  
+BF.dat <- NULL
+BF.name <- NULL
+for(i in with(data = DATA_3IV, unique(paste0(Lang,"_",Size,"_",Orientation))) ){
+        BF.dat <- c(BF.dat, extractBF(ttestBF( unlist( select( filter(DATA_3IV, Lang == unlist(strsplit(i, "_"))[1], Size == unlist(strsplit(i, "_"))[2], Orientation == unlist(strsplit(i, "_"))[3], Match == "N"), RT) ), unlist(select( filter(DATA_3IV, Lang == unlist(strsplit(i, "_"))[1], Size == unlist(strsplit(i, "_"))[2], Orientation == unlist(strsplit(i, "_"))[3], Match == "Y"), RT) ), paired = TRUE, nullInterval=c(0, Inf) ) )$bf[1] )
+        BF.name <- c(BF.name, i)
 }
+BF.table <- xtable( data.frame(dataset = BF.name, BFplus0 = BF.dat)[c(9:12,5:8,1:4),] )
 
+print(BF.table, type="html")
 #for(i in with(data = DATA_2IV, unique(paste(Lang,Size))) ){
 #        print(i)
 #        plot( ttestBF( unlist( select( filter(DATA_2IV, Lang == unlist(strsplit(i, " "))[1]
@@ -175,7 +196,9 @@ for(i in with(data = DATA_3IV, unique(paste(Lang,Size,Orientation))) ){
 #}
 ```
 
-To be discussed  
+BFplus0 represents how much the current evidence favor the alternative hypothesis against the null hypothesis. A BFplus0 which is larger than ten represents the strong evidence. A BFplus0 which is smaller than 1 represents the null evidence.  
+
+When the prior is 0.707, Bayes factors show the strong evidence for the large and vertical objects from the English participants. The evidences from the Dutch participants will settle down in the end of the evidence.    
   
 #### Secondary analysis: Changes among stimuli lists
 In the pre-registered proposal: "A participant will be assigned one of the four stimulus lists due to the counter-balanced within-participant conditions. A mixed ANOVA including the list as the independent variable will confirm its insignificant affection on the participants' responses."  
@@ -186,7 +209,7 @@ RT_aov_3IV_list <- with(data = DATA_3IV,
 print(RT_aov_3IV_list, type = "html")
 ```
 
-To be discussed.  
+The 4-way repeated measurement ANOVA shows the null effect of the stimuli lists, F < 1. On the ohter hand, the stimuli lists interacted with the object size, F(3, 180) = 3.63, MSE = 5812.51, p = .014, and the match effect, F(3, 180) = 4.43, MSE = 5542.77, p = .005.  
 
 #### Secondary analysis: Comprehension and Recognition task
 In the pre-registered proposal: "The average accuracies of the recognition trails and the comprehension task will be summarized by the participant. The average accuracy of every language group is compared to 50% which assume the participant had not read the probe sentence carefully. In the laboratory experiment, thirty recognition trials randomly present between the experimental trails. In the internet experiment, 32 comprehension trials present after the filler items."
@@ -194,10 +217,12 @@ In the pre-registered proposal: "The average accuracies of the recognition trail
 ```{r registered_task, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 require(xtable)
 TEST_Results <- unlist( with(filter(DATA_3IV, Size == "Large", Orientation == "H", Match == "Y"), tapply(MEM_ACC, Lang, t.test, mu=50, alternative = "greater")))
-TEST_Table <- xtable(matrix(as.numeric(TEST_Results[grep("statistic.t|df|p.value",names(TEST_Results))]),nc=3, byrow = TRUE, dimnames = list(c("Chinese","Dutch","English"),c("t","df","p value"))), digits=2)
+TEST_Table <- xtable(matrix(as.numeric(TEST_Results[grep("statistic.t|df|p.value|estimate.mean",names(TEST_Results))]),nc=4, byrow = TRUE, dimnames = list(c("Chinese","Dutch","English"),c("t","df","p value","Averaged Accuracies(%)")))[,c(4,1:3)], digits=2)
 print(TEST_Table, type="html")
 ```     
 
+Each group of participants complete the second task in the accuracies significantly higher than 50%.   
 
 ### Discussion
-**TBA**
+We could measure the match effects of object orientation when the object size was controlled. It is to be confrimed how the match effects change with the language backgrounds.  
+The large objects show the match advantage of object orientation for the three languages. The small objects tend to cause the match disadvantage of object orientation. The comparison between the three languages shows the Chinese would barely simulate the orientation of small object. We need to investigate the specific features of the Chinese scripts.  
