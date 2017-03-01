@@ -4,7 +4,7 @@ author: "Sau-Chin Chen"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output: html_document
 ---
-```{r import_data, message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
+```{r import_data, message=FALSE, warning=FALSE, include=FALSE}
 
 ## Import the raw data
 From_folder1 <- "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\Data\\2016Dec_Critical\\Dutch_Chinese_LAB\\"
@@ -25,7 +25,7 @@ data_US$Lang = "E"
 ## Import the analytic data
 DATA_PATH = "D:\\core\\Research\\projects\\Embodied\\EXPDATA\\ActionObject\\2016_Simulation\\EXP\\2016_Orien_Size\\Data\\2016Dec_Critical\\"
 
-# import analytical data
+# import analytic data
 DATA_2IV <- read.csv(paste0(DATA_PATH,"2IV_analytic_data.csv"))
 DATA_3IV <- read.csv(paste0(DATA_PATH,"3IV_analytic_data.csv"))
 
@@ -64,7 +64,7 @@ In our pre-registered proposal: "Match effects of object orientation in the sent
 ### Method
 #### Participants
 The participants came from three langauge backgrounds: English(the United States), Dutch(EUR students), Chinese(Taiwan undergraduates). 150 English participants were the US residents who were recruited from Amazon Mechanical Turk. Every English participant finished the experiment in Qualtrics platform and obtained US\$ 1.5 dollars as the reward. Total 128 valid participants' data (```r sum(data_US$Gender == "Female")/128``` females; averaged age is ```r round(mean(unique(data_US$Age)), 2)``` and the range is ```r paste(min(unique(data_US$Age)),"-",max(unique(data_US$Age)))```) are collected after excluded the participants who met the accidental stop and considered the equal numbers between the stimuli lists.  
-The undergraudates in EUR and NCKU participated in the Dutch and Chinese versions in the laboratories of EUR EBL and NCKU LACD Lab. They obtained the course credits or US\$ 2-3 dollars as the reward. ```r length(unique(data_TW$ID))``` Taiwan students (```r sum(data_TW$Gender == "F")/128``` females; averaged age is ```r round(mean(unique(data_TW$Age)), 2)``` and the range is ```r paste(min(unique(data_TW$Age)),"-",max(unique(data_TW$Age)))```) joined the Chinese version. So far, ```r length(unique(data_NL$ID))``` Dutch students (```r sum(data_NL$Gender == "f")/128``` females; averaged age is ```r round(mean(unique(data_NL$Age)), 2)``` and the range is ```r paste(min(unique(data_NL$Age)),"-",max(unique(data_NL$Age)))```) joined the Dutch version. One Dutch participant is excluded from this analysis because the accuracy score is lower than 70%. The analysis included this participant will be decribed in the footnote of the styled manuscript.  
+The undergraudates in EUR and NCKU participated in the Dutch and Chinese versions in the laboratories of EUR EBL and NCKU LACD Lab. They obtained the course credits or US\$ 2-3 dollars as the reward. ```r length(unique(data_TW$ID))``` Taiwan students (```r sum(data_TW$Gender == "F")/128``` females; averaged age is ```r round(mean(unique(data_TW$Age)), 2)``` and the range is ```r paste(min(unique(data_TW$Age)),"-",max(unique(data_TW$Age)))```) joined the Chinese version. So far, ```r length(unique(data_NL$ID))``` Dutch students (```r sum(data_NL$Gender == "f")/128``` females; averaged age is ```r round(mean(unique(data_NL$Age)), 2)``` and the range is ```r paste(min(unique(data_NL$Age)),"-",max(unique(data_NL$Age)))```) joined the Dutch version. Two Dutch participant is excluded from this analysis because the accuracy score is lower than 70%. We excluded 5 participants' data because of the pre-registered sample size. The analysis included this participant will be decribed in the footnote of the styled manuscript.  
 
 #### Stimuli and Design
 64 sets of critical stimuli are decided by the language backgrounds (English, Dutch, and Chinese), the object size (Large, Small), the object orientation (Horizontal, Verticl), and the matching the probe sentence and target picture(match, mismatch). Half of the sets represent the large objects, and the other half represent the small objects. In each set two pictures show the target object in horizontal and in vertical respectively. The format of target pictures are the grey scaled jpeg files in 240 X 240 pixels. Each picture matches one of the probe sentence whereas mismatches the other probe sentence. Every probe sentence are written in English, Dutch, and Chinese for the participants in the respective langauge backgrounds. The objects are the initial nouns of the probe sentences. We used this sentence strucure according to our earlier pilot study.  
