@@ -8,7 +8,7 @@ author:
 - name: Yu-Han Luo
   affiliation: National Cheng-Kung University
 - name: Rolf Zwaan
-  affiliation: Rolf Zwaan
+  affiliation: Erasmus University Rotterdam
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output: html_document
 ---
