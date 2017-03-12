@@ -1,6 +1,14 @@
 ---
 title: 'Size and Orientation: Match effects across three langauges'
-author: "Sau-Chin Chen"
+author: 
+- name: Sau-Chin Chen
+  affiliation: Tzu-Chi University
+- name: Bjorn de Koning
+  affiliation: Erasmus University Rotterdam
+- name: Yu-Han Luo
+  affiliation: National Cheng-Kung University
+- name: Rolf Zwaan
+  affiliation: Rolf Zwaan
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output: html_document
 ---
@@ -55,16 +63,13 @@ DATA_2IV$Size <- as.factor(DATA_2IV$Size)
 DATA_3IV$Size <- as.factor(DATA_3IV$Size)
 ```
 
-#### Authors
-Sau-Chin Chen, Bjorn de Koning, Yu-Han Luo, and Rolf Zwaan  
-  
 ### Hypothesis
 In our pre-registered proposal: "Match effects of object orientation in the sentence-picture verification task are consistently smaller than object shape, color, and size. We hypothesize that this may be due to the fact that the orientation objects are small and manipulable.  This study asks the questions if object size constrains object orientation effects, such that effects for smaller, manipulable, items are smaller than for larger, nonmanipulable objects. A pilot study yielded larger match effects for the large objects than for the small objects both in English and in Dutch speakers. In addition, a Bayesian analysis indicated that the stronger match effect occurred for the horizontal objects of English participants and the stronger match effect happened to the vertical objects of Dutch participants. The pre-registered experiment will update the design of sentence-picture verification based on our pilots and test the hypotheses in advance. A third language, Chinese, will be included to test the stronger match effect for the large objects than the small objects and to confirm the inconsistent match effects across horizontal and vertical objects. Alternative recognition trials will be triggered after each eight trials. These recognition trials are used to make sure the participants have paid their attentions on the probe sentences. Meta-analyses will be performed on the data for the three experiments. We expect that effects generalize across languages and therefore that language will not be a signficant moderator of the observed effects."
 
 ### Method
 #### Participants
 The participants came from three langauge backgrounds: English(the United States), Dutch(EUR students), Chinese(Taiwan undergraduates). 150 English participants were the US residents who were recruited from Amazon Mechanical Turk. Every English participant finished the experiment in Qualtrics platform and obtained US\$ 1.5 dollars as the reward. Total 128 valid participants' data (```r sum(data_US$Gender == "Female")/128``` females; averaged age is ```r round(mean(unique(data_US$Age)), 2)``` and the range is ```r paste(min(unique(data_US$Age)),"-",max(unique(data_US$Age)))```) are collected after excluded the participants who met the accidental stop and considered the equal numbers between the stimuli lists.  
-The undergraudates in EUR and NCKU participated in the Dutch and Chinese versions in the laboratories of EUR EBL and NCKU LACD Lab. They obtained the course credits or US\$ 2-3 dollars as the reward. ```r length(unique(data_TW$ID))``` Taiwan students (```r sum(data_TW$Gender == "F")/128``` females; averaged age is ```r round(mean(unique(data_TW$Age)), 2)``` and the range is ```r paste(min(unique(data_TW$Age)),"-",max(unique(data_TW$Age)))```) joined the Chinese version. So far, ```r length(unique(data_NL$ID))``` Dutch students (```r sum(data_NL$Gender == "f")/128``` females; averaged age is ```r round(mean(unique(data_NL$Age)), 2)``` and the range is ```r paste(min(unique(data_NL$Age)),"-",max(unique(data_NL$Age)))```) joined the Dutch version. Two Dutch participant is excluded from this analysis because the accuracy score is lower than 70%. We excluded 5 participants' data because of the pre-registered sample size. The analysis included this participant will be decribed in the footnote of the styled manuscript.  
+The undergraudates in EUR and NCKU participated in the Dutch and Chinese versions in the laboratories of EUR EBL and NCKU LACD Lab. They obtained the course credits or US\$ 2-3 dollars as the reward. ```r length(unique(data_TW$ID))``` Taiwan students (```r sum(data_TW$Gender == "F")/128``` females; averaged age is ```r round(mean(unique(data_TW$Age)), 2)``` and the range is ```r paste(min(unique(data_TW$Age)),"-",max(unique(data_TW$Age)))```) joined the Chinese version. So far, ```r length(unique(data_NL$ID))``` Dutch students (```r sum(data_NL$Gender == "f")/128``` females; averaged age is ```r round(mean(unique(data_NL$Age)), 2)``` and the range is ```r paste(min(unique(data_NL$Age)),"-",max(unique(data_NL$Age)))```) joined the Dutch version. Two Dutch participant are excluded from this analysis because the accuracy score is lower than 80%. We excluded 8 Dutch participants' data because of the pre-registered sample size. The analysis included this participant will be decribed in the footnote of the styled manuscript.  
 
 #### Stimuli and Design
 64 sets of critical stimuli are decided by the language backgrounds (English, Dutch, and Chinese), the object size (Large, Small), the object orientation (Horizontal, Verticl), and the matching the probe sentence and target picture(match, mismatch). Half of the sets represent the large objects, and the other half represent the small objects. In each set two pictures show the target object in horizontal and in vertical respectively. The format of target pictures are the grey scaled jpeg files in 240 X 240 pixels. Each picture matches one of the probe sentence whereas mismatches the other probe sentence. Every probe sentence are written in English, Dutch, and Chinese for the participants in the respective langauge backgrounds. The objects are the initial nouns of the probe sentences. We used this sentence strucure according to our earlier pilot study.  
@@ -154,7 +159,7 @@ RT_aov_2IV <- xtable(aov( RT ~ Lang*Size*Match + Error(ID/(Size*Match)), data =D
 print(RT_aov_2IV, type = "html")
 ```
 
-As like the four-way ANOVA, the three-way ANOVA show the only significant main effect of object size, ```r paste0("F(",RT_aov_2IV[3,1],",",RT_aov_2IV[5,1],") = ",round(RT_aov_2IV[3,4],digits = 2),", MSE = ", round(RT_aov_2IV[5,3],digits = 2),", p = ",round(RT_aov_2IV[3,5],digits = 3))```, and the interaction of size and match effect, ```r paste0("F(",RT_aov_2IV[9,1],",",RT_aov_2IV[11,1],") = ",round(RT_aov_2IV[9,4],digits = 2),", MSE = ", round(RT_aov_2IV[11,3],digits = 2),", p = ",round(RT_aov_2IV[9,5],digits = 3))```.  
+The three-way ANOVA shows the significant main effect of object size, ```r paste0("F(",RT_aov_2IV[3,1],",",RT_aov_2IV[5,1],") = ",round(RT_aov_2IV[3,4],digits = 2),", MSE = ", round(RT_aov_2IV[5,3],digits = 2),", p = ",round(RT_aov_2IV[3,5],digits = 3))```, but the interaction of size and match effect turns out marginal, ```r paste0("F(",RT_aov_2IV[9,1],",",RT_aov_2IV[11,1],") = ",round(RT_aov_2IV[9,4],digits = 2),", MSE = ", round(RT_aov_2IV[11,3],digits = 2),", p = ",round(RT_aov_2IV[9,5],digits = 3))```.  
 
 A mixed four-way ANOVA is conducted on the accuracy data.  
 ```{r registered_ANOVA_3IV_ACC, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
@@ -199,40 +204,43 @@ addpoly(dat_2IV_large_meta, row = 5, cex = .65, mlab = "RE model for large objec
 addpoly(dat_2IV_small_meta, row = 1, cex = .65, mlab = "RE model for small objects")
 ```
 
-The meta analysis of random-effect indicates the match advantage for the large objects. The Chinese data performed the larger match advantages than English and Dutch. As for the small objects, mismatch advantage approached the significance level. The Chinese data has the clear mismatch advantage compared to English and Dutch.  
+The meta analysis of random-effect model indicates the match advantage for the large objects. The forest plot indicats the contribution of Chinese data to the overall match advantage. As for the small objects, the mismatch advantage of Chinese data decreases the overall match effect. The Dutch data shows the pattern of match advantage for the small objects. However, this pattern was implicit in the forest plot at 2017, Jan.
+
+![Patterns of every group at 2017, January](./Brief_files/figure-html/regisgered_meta01_201701.png)
 
 [//]: # "The standard effect size of match effects were estimated in the function of languages, object size, and object orientation. The meta-analytic effects were estimated in the convergence of the orientation and the size. The  match advantage of the large and vertical objects was indicated by the meta-analytic effect. These objects further contributed to the match advantage of large objects. The small objects shows the null effect but tends to the match disadvantage. After the Dtuch data accumulated beyond 50 participants, the match effect of small objects will be confirmed."    
 
-In the meta analysis #2, the by-participant match effects are calculated in the function of languages and object size. The by-pariticipant match effect are estimated by the pooling variance given each participant. These data are the devpendent variable of the meta-regression. The funnel plot illustrates the random variation of the individual match effects. Every point represent the individual responses for the large or small objects. The meta-regression models are computed in accordance with the combinations of participants' error and the two indevependent variables, languages and object size.   
-```{r regisgered_meta02, echo=TRUE, fig.align="center", message=FALSE, warning=FALSE, cache=TRUE, results='markup'}
-dat_subj_2IV = data.frame(
-        subset(DATA_2IV, Match == "Y"),
-        subset(DATA_2IV, Match == "N")[,6:8]
-)[,c(1:7,9,10,8,11)]
-names(dat_subj_2IV) <- c("Lang","List","ID","Size","Match","Match_RT","Match_RTsd","Mismatch_RT","Mismatch_RTsd","Match_ACC","Mismatch_ACC")
-# Every participant contributed 8 trials to each condition.
-dat_subj_2IV = data.frame(dat_subj_2IV, ni = rep(8, dim(dat_subj_2IV)[1]), ri = rep(.5,dim(dat_subj_2IV)[1]))
+[//]: # "In the meta analysis #2, the by-participant match effects are calculated in the function of languages and object size. The by-pariticipant match effect are estimated by the pooling variance given each participant. These data are the devpendent variable of the meta-regression. The funnel plot illustrates the random variation of the individual match effects. Every point represent the individual responses for the large or small objects. The meta-regression models are computed in accordance with the combinations of participants' error and the two indevependent variables, languages and object size."   
 
-## Meta-anlysis of null model
-dat_subj_2IV_es <- escalc(measure = "MC", m1i = Mismatch_RT, m2i = Match_RT, sd1i = Mismatch_RTsd, sd2i = Match_RTsd, ni = ni, ri = ri, slab = paste(Lang, ID, Size), data = dat_subj_2IV)
-## Make sure the random variations are in the reasonable range
-dat_subj_2IV_null_model <- rma(yi = yi, sei = sqrt(vi), method = "ML", data = dat_subj_2IV_es)
-funnel(dat_subj_2IV_null_model, xlab = "by-participant match effects", pch = levels(dat_subj_2IV_es$Lang))
+To make sure the interaction of object size and match effects, the data set that illustrated the forest plot is analyzed by Bayesian ANOVA. The prior (r scale) for the fixed effects is 0.5, and the prior for the random effect (by subject variations) is 1. The interaction of object size and match effects is embedded in the four models as following.
 
-## Meta-analysis with participants' variation as moderator
-dat_subj_2IV_subj_error <- rma(yi = yi, sei = sqrt(vi), mods = ~ sqrt(vi), method = "ML", data = dat_subj_2IV_es)
-## Meta-analysis with all independent variables as moderator
-dat_subj_2IV_Lang <- rma(yi = yi, sei = sqrt(vi), mods = ~ sqrt(vi) + Lang, method = "ML", data = dat_subj_2IV_es)
-dat_subj_2IV_Size <- rma(yi = yi, sei = sqrt(vi), mods = ~ sqrt(vi) + Size, method = "ML", data = dat_subj_2IV_es)
-dat_subj_2IV_LangxSize <- rma(yi = yi, sei = sqrt(vi), mods = ~ sqrt(vi) + Lang * Size, method = "ML", data = dat_subj_2IV_es)
-## Compare the model of interaction and the model with only participants' variation
-anova(dat_subj_2IV_subj_error, dat_subj_2IV_LangxSize)$pval
-## Compare the model of interaction and the model of language
-anova(dat_subj_2IV_Lang, dat_subj_2IV_LangxSize)$pval
-## Compare the model of interaction and the model of object size
-anova(dat_subj_2IV_Size, dat_subj_2IV_LangxSize)$pval
-dat_subj_2IV_Size
+```{r registered_BF01, echo=TRUE, message=FALSE, warning=FALSE}
+require(BayesFactor)
+load("bf_2IV.RData")
+## Numerator: Size + Match + Size:Match + ID
+## Denominator: Size + Match + ID
+extractBF(bf_2IV[13]/bf_2IV[7])$bf
+## Numerator: Lang + Size + Match + Size:Match + ID
+## Denominator: Lang + Size + Match + ID 
+extractBF(bf_2IV[14]/bf_2IV[8])$bf
+## Numerator: Lang + Size + Lang:Size + Match + Size:Match + ID
+## Denominator: Lang + Size + Lang:Size + Match + ID
+extractBF(bf_2IV[15]/bf_2IV[9])$bf
+## Numerator: Lang + Size + Match + Lang:Match + Size:Match + ID
+## Denominator: Lang + Size + Match + Lang:Match + ID
+extractBF(bf_2IV[16]/bf_2IV[11])$bf
 ```
+
+This data set is seperated to the set of large objects and the set of small objects. The analysis shows the larger Bayes Factor for the large objects. However, neither large objects nor small objects have the Bayes Factor > 1.
+
+```{r registered_BF02, echo=TRUE, message=FALSE, warning=FALSE}
+require(BayesFactor)
+## Large objects
+extractBF(bf_2IV_Large[3]/bf_2IV_Large[1])$bf
+## Small objects
+extractBF(bf_2IV_Small[3]/bf_2IV_Small[1])$bf
+```
+
 
 The comparisons between models indicate the object size has the largest accountibility for the individual match effects. This is consistent with the meta analysis #1 that the large objects show the significant match advantage, and the small objects show the tendency of mismatch advantage.  
 
