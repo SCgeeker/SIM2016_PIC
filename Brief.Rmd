@@ -10,7 +10,10 @@ author:
 - name: Rolf Zwaan
   affiliation: Erasmus University Rotterdam
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
 ---
 ```{r import_data, message=FALSE, warning=FALSE, include=FALSE}
 
@@ -161,6 +164,9 @@ print(RT_aov_2IV, type = "html")
 
 The three-way ANOVA shows the significant main effect of object size, ```r paste0("F(",RT_aov_2IV[3,1],",",RT_aov_2IV[5,1],") = ",round(RT_aov_2IV[3,4],digits = 2),", MSE = ", round(RT_aov_2IV[5,3],digits = 2),", p = ",round(RT_aov_2IV[3,5],digits = 3))```, but the interaction of size and match effect turns out marginal, ```r paste0("F(",RT_aov_2IV[9,1],",",RT_aov_2IV[11,1],") = ",round(RT_aov_2IV[9,4],digits = 2),", MSE = ", round(RT_aov_2IV[11,3],digits = 2),", p = ",round(RT_aov_2IV[9,5],digits = 3))```.  
 
+##### Brief discussion on the analysis of response times  
+From the four-way ANOVA to the three-way ANOVA, the interaction of language, size, and match turns out significant after the orientations were merged. This demonstrates the match effects of Chinese being dissimilar to those of English and Dutch. 
+
 A mixed four-way ANOVA is conducted on the accuracy data.  
 ```{r registered_ANOVA_3IV_ACC, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
 require(xtable)
@@ -168,13 +174,13 @@ ACC_aov_3IV <- xtable(aov( ACC ~ Lang*Size*Orientation*Match + Error(ID/(Size*Or
 print(ACC_aov_3IV, type = "html")
 ```  
 
-**Brief discussion on the analysis of accuracy**  
+##### Brief discussion on the analysis of accuracy  
 The Chinese participants made more incorrect responses for the mismatched items of the small objects than the other two groups. This may cause the significant main effect of match effect, ```r paste0("F(",ACC_aov_3IV[9,1],",",ACC_aov_3IV[11,1],") = ",round(ACC_aov_3IV[9,4],digits = 2),", MSE = ", round(ACC_aov_3IV[11,3],digits = 2),", p = ",round(ACC_aov_3IV[9,5],digits = 3))```, and the significant interaction of language and object size, ```r paste0("F(",ACC_aov_3IV[3,1],",",ACC_aov_3IV[5,1],") = ",round(ACC_aov_3IV[3,4],digits = 2),", MSE = ", round(ACC_aov_3IV[5,3],digits = 2),", p = ",round(ACC_aov_3IV[3,5],digits = 3))```. The performances of Chinese participants also caused the interaction of languages, object orientations, and match effects marginal (p = .07).  
   
 #### Primay analysis: Meta-analysis
 In the pre-registered proposal: "A meta-analytic effect size of the match effects across languages, size, and orientation will be summarized. This meta-analysis will confirm that the match effects could shift with the object size and orientations but have a stable pattern across languages."  
   
-In the meta analysis #1, the effect size of match effects for each object size are calculated based on participants' median RT and standardize deviation. The confidence intervals represent the match advantage/disadvantage estimated by the difference of medians.  
+In this meta analysis, the effect size of match effects for each object size are calculated based on participants' median RT and standardize deviation. . The intervals represent the match advantage/disadvantage estimated by the difference of medians.  
 ```{r regisgered_meta01, echo=FALSE, fig.align="center", message=FALSE, warning=FALSE, cache=TRUE, results="asis"}
 require(metafor)
 ## Create data set for escalc()
@@ -208,44 +214,18 @@ The meta analysis of random-effect model indicates the match advantage for the l
 
 ![Patterns of every group at 2017, January](./Brief_files/figure-html/regisgered_meta01_201701.png)
 
+
+This old forest plot shows the Dutch match advantage of small objects approched zero and the Dutch match advantage of large objects was as large as the English data. Although the overall match effects of large (14.07) and small objects (-22.75) are like the old data (26.22 and -31.00), these differences show the different patterns between language groups yet to detected before the sample size reached the pre-registered numbers. 
+
 [//]: # "The standard effect size of match effects were estimated in the function of languages, object size, and object orientation. The meta-analytic effects were estimated in the convergence of the orientation and the size. The  match advantage of the large and vertical objects was indicated by the meta-analytic effect. These objects further contributed to the match advantage of large objects. The small objects shows the null effect but tends to the match disadvantage. After the Dtuch data accumulated beyond 50 participants, the match effect of small objects will be confirmed."    
 
 [//]: # "In the meta analysis #2, the by-participant match effects are calculated in the function of languages and object size. The by-pariticipant match effect are estimated by the pooling variance given each participant. These data are the devpendent variable of the meta-regression. The funnel plot illustrates the random variation of the individual match effects. Every point represent the individual responses for the large or small objects. The meta-regression models are computed in accordance with the combinations of participants' error and the two indevependent variables, languages and object size."   
 
-To make sure the interaction of object size and match effects, the data set that illustrated the forest plot is analyzed by Bayesian ANOVA. The prior (r scale) for the fixed effects is 0.5, and the prior for the random effect (by subject variations) is 1. The interaction of object size and match effects is embedded in the four models as following.
-
-```{r registered_BF01, echo=TRUE, message=FALSE, warning=FALSE}
-require(BayesFactor)
-load("bf_2IV.RData")
-## Numerator: Size + Match + Size:Match + ID
-## Denominator: Size + Match + ID
-extractBF(bf_2IV[13]/bf_2IV[7])$bf
-## Numerator: Lang + Size + Match + Size:Match + ID
-## Denominator: Lang + Size + Match + ID 
-extractBF(bf_2IV[14]/bf_2IV[8])$bf
-## Numerator: Lang + Size + Lang:Size + Match + Size:Match + ID
-## Denominator: Lang + Size + Lang:Size + Match + ID
-extractBF(bf_2IV[15]/bf_2IV[9])$bf
-## Numerator: Lang + Size + Match + Lang:Match + Size:Match + ID
-## Denominator: Lang + Size + Match + Lang:Match + ID
-extractBF(bf_2IV[16]/bf_2IV[11])$bf
-```
-
-This data set is seperated to the set of large objects and the set of small objects. The analysis shows the larger Bayes Factor for the large objects. However, neither large objects nor small objects have the Bayes Factor > 1.
-
-```{r registered_BF02, echo=TRUE, message=FALSE, warning=FALSE}
-require(BayesFactor)
-## Large objects
-extractBF(bf_2IV_Large[3]/bf_2IV_Large[1])$bf
-## Small objects
-extractBF(bf_2IV_Small[3]/bf_2IV_Small[1])$bf
-```
-
-
-The comparisons between models indicate the object size has the largest accountibility for the individual match effects. This is consistent with the meta analysis #1 that the large objects show the significant match advantage, and the small objects show the tendency of mismatch advantage.  
-
-#### Secondary analysis: Bayes Factors
+#### Secondary analysis: Bayesian Statistics
 In the pre-registered proposal: "We calculate Bayes factor of each match effect as the evidence resulted from the given object size, orientation, and the participants' native language."   
+
+###### Bayes Factors
+
 We run the one-tailed Baysian t test for the six sets of match effects. The Bayes factors that favored the match advantage (BFplus0) and the mismatch advantage (BF0plus) are calculated.  
 ```{r registered_Bayes, echo=FALSE, message=FALSE, warning=FALSE, fig.align="center", results="asis"}
 ## Compute Bayes Factor
@@ -277,7 +257,40 @@ extractBF(meta.ttestBF(t=raw_t[c(1,3,5)], n1=raw_n[c(1,3,5)], nullInterval = c(0
 extractBF(meta.ttestBF(t=raw_t[c(2,4,6)], n1=raw_n[c(2,4,6)], nullInterval = c(-Inf,0), rscale = 1))$bf[1]
 ```
 
-THe large objects across the three languages show a strong evidence, BF+0 = 33.99, but the small objects show a neglectable evidence, BF0+ = 0.25.
+[//]: # "THe large objects across the three languages show a strong evidence, BF+0 = 33.99, but the small objects show a neglectable evidence, BF0+ = 0.25."
+
+##### BF models
+
+To make sure the interaction of object size and match effects, the models contained 'Size:Match' are analyzed by Bayesian ANOVA. In the data for the forest plot, there are four models (see below) have 'Size:Match'. The Bayes Factors of this interaction are calculated based on the demonstration of Rouder, Engelhardt, McCabe, & Morey (2016). The prior (r scale) for the fixed effects is 0.5, and the prior for the random effect (by subject variations) is 1. The interaction of object size and match effects is embedded in the four models as following.
+
+```{r registered_BF01, echo=TRUE, message=FALSE, warning=FALSE}
+require(BayesFactor)
+load("bf_2IV.RData")
+## Numerator: Size + Match + Size:Match + ID
+## Denominator: Size + Match + ID
+extractBF(bf_2IV[13]/bf_2IV[7])$bf
+## Numerator: Lang + Size + Match + Size:Match + ID
+## Denominator: Lang + Size + Match + ID 
+extractBF(bf_2IV[14]/bf_2IV[8])$bf
+## Numerator: Lang + Size + Lang:Size + Match + Size:Match + ID
+## Denominator: Lang + Size + Lang:Size + Match + ID
+extractBF(bf_2IV[15]/bf_2IV[9])$bf
+## Numerator: Lang + Size + Match + Lang:Match + Size:Match + ID
+## Denominator: Lang + Size + Match + Lang:Match + ID
+extractBF(bf_2IV[16]/bf_2IV[11])$bf
+```
+
+This data set is seperated to the set of large objects and the set of small objects. The analysis shows the larger Bayes Factor for the large objects. However, neither large objects nor small objects have the Bayes Factor > 1.
+
+```{r registered_BF02, echo=TRUE, message=FALSE, warning=FALSE}
+require(BayesFactor)
+## Large objects
+extractBF(bf_2IV_Large[3]/bf_2IV_Large[1])$bf
+## Small objects
+extractBF(bf_2IV_Small[3]/bf_2IV_Small[1])$bf
+```
+
+The comparisons between models indicate the object size has the largest accountibility for the match effects. This is consistent with the meta-analytical effects that the large objects show the significant match advantage, and the small objects show the tendency of mismatch advantage.  
   
 #### Secondary analysis: Changes among stimuli lists
 In the pre-registered proposal: "A participant will be assigned one of the four stimulus lists due to the counter-balanced within-participant conditions. A mixed ANOVA including the list as the independent variable will confirm its insignificant affection on the participants' responses."  
@@ -302,16 +315,21 @@ print(TEST_Table, type="html")
 
 Each group of participants complete the second task in the accuracies significantly higher than 50%.   
 
+### Discussion: Comfirmatory Analysis
+In the beginning of our pre-registered plan, "we expect that (match) effects generalize across languages and therefore that language will not be a signficant moderator of the observed effects." The current results show the match effects changed among the three languages. The meta-analytical effect of small objects is consistent with the weak match advantage in the past studies. Among the three language groups, the Dutch data showed the tendency of match advantage. On the other hand, the meta-analytical effect of large objects confirms the findings in our pilot studies ([English pilot data](https://osf.io/sre3m/) and [Dutch pilot data](https://osf.io/6w3kn/)). The Chinese data contributed the largest effect to this overall effect, but the Dutch data showed the null effect. 
 
-### Discussion
-#### Alternative analysis: By-item accuracy
-To evaluate the language bias, we summarized the by-item accuracy for each data set. In use of the 80% as the criteria, we found 10 of 192 items are low accurate for English participants; 16 of 192 items are low accurate for Dutch participants; 26 of 192 items are low accurate for Chinese participants. This may imply that the Chinese participants are unfamiliar with more the objects than English and Dutch participants. The details will be described in the appendix of the manuscript.  
+### Discussion: Exploratory Analysis
 
-#### Why match effects of object orientation change?
-1. Large objects are able generate the match advantage across the three language groups. Small objects fail to cause the match effects, but there was a match disadvantage happened to the Chinese participants.  
-  
-2. In the pilot study, [English participants](https://osf.io/sre3m/) and [Dutch participants](https://osf.io/6w3kn/) tended to show the match advantages of the large objects and the match disadvantages of the small objects. The critical study indicates this pattern although the meta-analysis and Bayes factors show the different pictures. The meta-analysis reveals the contribution of the Chinese participants because this analysis used the median RTs as the dependent measurement. The Bayes factors reveals the larger match advantage for the English participants because this analysis used the mean RTs as the dependent measurement. As for the small objects, both the meta-analysis and the Bayes factors indicate the match disadvantage of the Chinese participants.  
-  
-3. Question 1: Is there the primary factor caused the match advantage of large objects and the mismatch advantage of small objects? If people are easier simulated the visaul image of large objects than the small objects, they have the response advantage for the large objects presented in the typical orientation. This brings two testable hypotheses: (1) Visual similuation of large objects is more efficient than that of small objects; (2) Large objects are easier simulated in the typical orientation. To test the first hypothesis, we could design the between-participant study in which one group have the large and small objects but the other group have only the small objects. To test the second hypothesis, We may need to build the norm that classify the typtical orientation of the large objects.  
+The meta analysis shows the interaction of object size and match effects, but the Bayesian statistics tend to falsify this interaction. The moderator of language shows the larger impact than our expect. During the data collection and analysis, we have considered some directions to be explored. 
 
-4. Question 2: Why do the Chinese participants show the mismatch advantage for the small objects? Taiwanese started reading and writing in the vertical direction. They may be used to imagine the visual appearance with the vertical text. Although many adult Taiwanese are used to vertical and horizontal orientation, their reading experience may enhance the implied object shape. We could compare the match effects of small objects in the horizontal reading direction and in the vertical reading direction. If the vertical reading direction could help Taiwanese imagine the object shape, it could show the match advantage in the vertical direction rather than the horizontal direction. The replications of classical orientation studies (Stanfield and Zwaan ,2001; Zwaan and Pecher, 2012) could test this hypothesis.  
+At March 1st, Rolf suggested "We can simply run a perception experiment in which people see a picture of an object and then another picture their task is to say whether it's the same object. We should then expect a bigger orientation effect for the nonmanipulable objects than for the manipulable ones. So basically this is the same experiment but with sentences replaced with pictures." 
+
+After the data collection was completed, I suggested the alternative hypothesis: " I am curious if the participants "remembered" the probe sentences in different strategies? The English participants are not considered in this question because they run the comprehension task rather than the recognition task in the laboratories. The probe sentences imply the object orientation in some background, but the target pictures show the objects without any context information. What if Taiwan participants tended to remember the background of large objects, but Dutch participants preferred the context of small objects? This question would lead to the new hypothesis that the language could guide the individual attentions to the objects and the background."
+
+When I was updating this handout, the precise version of my hypothsis came to my mind. We could expect that the participants have the visual simulation of the scene when the comprehended the probe sentence. This scene illustrates the object in the background implied by the sentence. If the participants' attentions to the object and to the background are varied among the languages, the evaluation performance could be different among the language users. This hypothesis has the support of the eye-movement study on the scene perception(Nisbett & Miyamoto 2005).  
+
+[//]: # "Alternative analysis: By-item accuracy"
+[//]: # "To evaluate the language bias, we summarized the by-item accuracy for each data set. In use of the 80% as the criteria, we found 10 of 192 items are low accurate for English participants; 16 of 192 items are low accurate for Dutch participants; 26 of 192 items are low accurate for Chinese participants. This may imply that the Chinese participants are unfamiliar with more the objects than English and Dutch participants. The details will be described in the appendix of the manuscript." 
+
+[//]: # "##### Why match effects of object orientation change?" 
+[//]: # "1. Large objects are able generate the match advantage across the three language groups. Small objects fail to cause the match effects, but there was a match disadvantage happened to the Chinese participants.   2. In the pilot study, [English participants](https://osf.io/sre3m/) and [Dutch participants](https://osf.io/6w3kn/) tended to show the match advantages of the large objects and the match disadvantages of the small objects. The critical study indicates this pattern although the meta-analysis and Bayes factors show the different pictures. The meta-analysis reveals the contribution of the Chinese participants because this analysis used the median RTs as the dependent measurement. The Bayes factors reveals the larger match advantage for the English participants because this analysis used the mean RTs as the dependent measurement. As for the small objects, both the meta-analysis and the Bayes factors indicate the match disadvantage of the Chinese participants.   3. Question 1: Is there the primary factor caused the match advantage of large objects and the mismatch advantage of small objects? If people are easier simulated the visaul image of large objects than the small objects, they have the response advantage for the large objects presented in the typical orientation. This brings two testable hypotheses: (1) Visual similuation of large objects is more efficient than that of small objects; (2) Large objects are easier simulated in the typical orientation. To test the first hypothesis, we could design the between-participant study in which one group have the large and small objects but the other group have only the small objects. To test the second hypothesis, We may need to build the norm that classify the typtical orientation of the large objects.   4. Question 2: Why do the Chinese participants show the mismatch advantage for the small objects? Taiwanese started reading and writing in the vertical direction. They may be used to imagine the visual appearance with the vertical text. Although many adult Taiwanese are used to vertical and horizontal orientation, their reading experience may enhance the implied object shape. We could compare the match effects of small objects in the horizontal reading direction and in the vertical reading direction. If the vertical reading direction could help Taiwanese imagine the object shape, it could show the match advantage in the vertical direction rather than the horizontal direction. The replications of classical orientation studies (Stanfield and Zwaan ,2001; Zwaan and Pecher, 2012) could test this hypothesis."
