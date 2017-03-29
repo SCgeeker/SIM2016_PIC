@@ -120,7 +120,7 @@ ggplot(DATA_3IV,aes(x=paste(Size,Orientation),y=RT,fill=Match)) + stat_summary(f
 ```
 
 This figure illustrates the match effects across object size and languages. The object orientations are merged under each object size.  
-```{r plot_2IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=TRUE}
+```{r plot_2IV, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', cache=FALSE}
 require(ggplot2)
 # Take the means and medians for 2 IV
 RT_Summary_2IV <- matrix(unlist( with(data = DATA_2IV,
@@ -316,7 +316,7 @@ print(TEST_Table, type="html")
 Each group of participants complete the second task in the accuracies significantly higher than 50%.   
 
 ### Discussion: Comfirmatory Analysis
-In the beginning of our pre-registered plan, "we expect that (match) effects generalize across languages and therefore that language will not be a signficant moderator of the observed effects." The current results show the match effects changed among the three languages. The meta-analytical effect of small objects is consistent with the weak match advantage in the past studies. Among the three language groups, the Dutch data showed the tendency of match advantage. On the other hand, the meta-analytical effect of large objects confirms the findings in our pilot studies ([English pilot data](https://osf.io/sre3m/) and [Dutch pilot data](https://osf.io/6w3kn/)). The Chinese data contributed the largest effect to this overall effect, but the Dutch data showed the null effect. 
+In the beginning of our pre-registered plan, "we expect that (match) effects generalize across languages and therefore that language will not be a signficant moderator of the observed effects." The current results show the match effects changed among the three languages. The meta-analytical effect of small objects is consistent with the weak match advantage in the past studies. Among the three language groups, the Dutch data showed the tendency of match advantage. On the other hand, the meta-analytical effect of large objects confirms the findings in our pilot studies ([English pilot data](https://osf.io/av9p6/) and [Dutch pilot data](https://osf.io/s9mc9/)). The Chinese data contributed the largest effect to this overall effect, but the Dutch data showed the null effect. 
 
 ### Discussion: Exploratory Analysis
 
